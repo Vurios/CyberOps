@@ -1,0 +1,17 @@
+{
+  "name": "cyberops-sandbox",
+  "version": "1.0.0",
+  "description": "Local development server and sandbox environment for CyberOps security training",
+  "type": "module",
+  "main": "local-server.js",
+  "scripts": {
+    "start": "node local-server.js"
+  },
+  "keywords": [
+    "cybersecurity",
+    "sandbox",
+    "training"
+  ],
+  "author": "",
+  "license": "ISC"
+}

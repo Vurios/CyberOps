@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="Content-Security-Policy"
+    content="default-src 'self'; script-src 'self'; style-src 'self' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data:; object-src 'none';">
+  <meta name="description"
+    content="Nine structured cybersecurity learning modules covering risk management, website security, threat modeling, cryptography, sandboxing, Kali Linux, Nmap, and brute-force defenses.">
+  <title>CyberOps — Learning Modules</title>
+  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="css/variables.css">
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/components.css">
+  <link rel="stylesheet" href="css/navigation.css">
+  <link rel="stylesheet" href="css/modules.css">
+  <link rel="stylesheet" href="css/chatbot.css">
+</head>
+
+<body>
+  <!-- Shared SVG Gradients Defs -->
+  <svg class="hidden-svg-defs" aria-hidden="true">
+    <defs>
+      <linearGradient id="hero-brand-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+        <stop offset="0%" stop-color="#6D3FE0" />
+        <stop offset="100%" stop-color="#E0459C" />
+      </linearGradient>
+      <linearGradient id="hero-blue-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+        <stop offset="0%" stop-color="#2F6FED" />
+        <stop offset="100%" stop-color="#0c0418" />
+      </linearGradient>
+    </defs>
+  </svg>
+
+  <div class="app-layout">
+
+    <!-- ── Sticky Top Navigation Bar ────────────────────────── -->
+    <header class="top-nav">
+      <div class="nav-container">
+        <a href="index.html" class="nav-brand">
+          <div class="nav-logo">
+            <svg viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
+              <rect x="2" y="2" width="28" height="28" rx="8" fill="#110822" stroke="url(#hero-brand-grad)"
+                stroke-width="2.5" />
+              <circle cx="16" cy="16" r="6" fill="url(#hero-brand-grad)" />
+            </svg>
+          </div>
+          <div class="nav-brand-text">
+            <span class="nav-title">CyberOps</span>
+            <span class="nav-subtitle">Security Awareness</span>
+          </div>
+        </a>
+
+        <div class="nav-links-wrapper">
+          <ul class="nav-links">
+            <li><a href="index.html" class="nav-link">Dashboard</a></li>
+            <li><a href="modules.html" class="nav-link nav-link--active">Learning Modules</a></li>
+            <li><a href="labs.html" class="nav-link">Cyber Labs</a></li>
+            <li><a href="games.html" class="nav-link">Simulations</a></li>
+            <li><a href="certifications.html" class="nav-link">Certifications</a></li>
+          </ul>
+
+          <button type="button" class="nav-hamburger" aria-label="Toggle navigation" aria-expanded="false">
+            <span class="nav-hamburger__line"></span>
+            <span class="nav-hamburger__line"></span>
+            <span class="nav-hamburger__line"></span>
+          </button>
+
+        </div>
+      </div>
+
+      <!-- Mobile dropdown panel -->
+      <div class="nav-dropdown" id="nav-dropdown">
+        <a href="index.html" class="nav-dropdown__link">Dashboard</a>
+        <a href="modules.html" class="nav-dropdown__link nav-dropdown__link--active">Learning Modules</a>
+        <a href="labs.html" class="nav-dropdown__link">Cyber Labs</a>
+        <a href="games.html" class="nav-dropdown__link">Simulations</a>
+        <a href="certifications.html" class="nav-dropdown__link">Certifications</a>
+      </div>
+    </header>
+
+    <!-- ── Main Content ───────────────────────────────────── -->
+    <main class="main-content">
+      <section class="hero-section hero-section--subpage">
+        <div class="hero-content">
+          <span class="badge badge--gradient">Curriculum</span>
+          <h1 class="hero-title">Core Learning Modules</h1>
+          <p class="hero-desc">// curriculum_version: 3.0 — modules_loaded: 09 — status: active</p>
+          <p class="hero-intro-text">Structured cybersecurity curriculum covering foundational information security,
+            access control, cryptography, vulnerability mitigation, and interactive defensive sandboxes. Select a module
+            to begin your learning pathway.</p>
+        </div>
+
+        <!-- Stepped Curriculum Path SVG (Distinct for Modules) -->
+        <div class="orbital-hero" aria-hidden="true">
+          <div class="orbital-hero__glow"></div>
+          <svg class="orbital-hero__svg" viewBox="0 0 320 320" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <!-- Curriculum connector path -->
+            <path d="M40 240 Q100 240 130 160 T280 80" stroke="rgba(109, 63, 224, 0.25)" stroke-width="3"
+              stroke-linecap="round" />
+            <path d="M40 240 Q100 240 130 160 T280 80" stroke="url(#hero-brand-grad)" stroke-width="1.5"
+              stroke-linecap="round" stroke-dasharray="8 6" />
+
+            <!-- Node 1: Fundamentals (Bottom-Left) -->
+            <g transform="translate(60, 240)">
+              <circle cx="0" cy="0" r="20" fill="#110822" stroke="rgba(109, 63, 224, 0.6)" stroke-width="2" />
+              <circle cx="0" cy="0" r="15" fill="url(#hero-brand-grad)" opacity="0.15" />
+              <rect x="-5" y="-1" width="10" height="8" rx="1.5" fill="none" stroke="var(--text-primary)"
+                stroke-width="1.5" />
+              <path d="M-3,-1 V-4 A3,3 0 0,1 3,-4 V-1" fill="none" stroke="var(--text-primary)" stroke-width="1.5"
+                stroke-linecap="round" />
+              <circle cx="6" cy="-6" r="2.5" fill="var(--accent-green)" />
+            </g>
+
+            <!-- Node 2: Infrastructure (Center) -->
+            <g transform="translate(160, 160)">
+              <circle cx="0" cy="0" r="24" fill="#110822" stroke="url(#hero-brand-grad)" stroke-width="2" />
+              <circle cx="0" cy="0" r="18" fill="url(#hero-brand-grad)" opacity="0.15" />
+              <path d="M-6,-5 L-1,0 L-6,5" fill="none" stroke="var(--text-primary)" stroke-width="2"
+                stroke-linecap="round" stroke-linejoin="round" />
+              <line x1="2" y1="5" x2="8" y2="5" stroke="var(--text-primary)" stroke-width="2" stroke-linecap="round" />
+            </g>
+
+            <!-- Node 3: Web Security (Top-Right) -->
+            <g transform="translate(260, 80)">
+              <circle cx="0" cy="0" r="20" fill="#110822" stroke="rgba(224, 69, 156, 0.6)" stroke-width="2" />
+              <circle cx="0" cy="0" r="15" fill="url(#hero-brand-grad)" opacity="0.15" />
+              <path
+                d="M0,-6.5 C2,-6.5 4.5,-5.5 6,-4.5 L6,-0.5 C6,2.5 4,5.5 0,7 C-4,5.5 -6,2.5 -6,-0.5 L-6,-4.5 C-4.5,-5.5 -2,-6.5 0,-6.5 Z"
+                fill="none" stroke="var(--text-primary)" stroke-width="1.75" stroke-linejoin="round"
+                stroke-linecap="round" />
+            </g>
+
+            <!-- Additional floating data elements -->
+            <circle cx="110" cy="200" r="2" fill="var(--text-secondary)" opacity="0.4" />
+            <circle cx="210" cy="110" r="3" fill="var(--accent-primary)" opacity="0.6" />
+          </svg>
+        </div>
+      </section>
+
+      <!-- Search Input Container -->
+      <div class="search-filter-container">
+        <input type="text" class="search-input" placeholder="Search modules by title, summary, or badge..."
+          aria-label="Search modules">
+      </div>
+
+      <!-- ── Group 1: Security Fundamentals ────────────────────── -->
+      <section class="module-group">
+        <div class="module-group__header">
+          <h3 class="module-group__title">Security Fundamentals</h3>
+          <span class="module-group__badge">Assurance &amp; Risk</span>
+        </div>
+        <div class="modules-grid">
+
+          <!-- Module 1: IT Assurance Foundations -->
+          <div class="module-card" id="module-1">
+            <div class="module-card__header">
+              <div class="iso-icon-tile">
+                <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" stroke="url(#hero-brand-grad)" stroke-width="2"
+                    stroke-linejoin="round" />
+                  <path d="M9 11l2 2 4-4" stroke="#EDEFF3" stroke-width="2" stroke-linecap="round"
+                    stroke-linejoin="round" />
+                </svg>
+              </div>
+              <div>
+                <span class="module-card__label">MODULE 01</span>
+                <h2 class="module-card__title">IT Assurance Foundations</h2>
+              </div>
+            </div>
+            <p class="module-card__summary">Learn the fundamental components of IT Assurance, risk management models,
+              and security control domains.</p>
+            <a href="module-detail.html?id=01" class="module-card__action">View Module details <span>→</span></a>
+          </div>
+
+          <!-- Module 2: Threat Modeling & Risk Assessment -->
+          <div class="module-card" id="module-2">
+            <div class="module-card__header">
+              <div class="iso-icon-tile iso-icon-tile--secondary">
+                <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <rect x="3" y="3" width="18" height="18" rx="2" stroke="url(#hero-brand-grad)" stroke-width="2" />
+                  <circle cx="12" cy="12" r="4" stroke="currentColor" stroke-width="1.5" />
+                  <path d="M12 3v5M12 16v5M3 12h5M16 12h5" stroke="currentColor" stroke-width="1.5" />
+                </svg>
+              </div>
+              <div>
+                <span class="module-card__label module-card__label--secondary">MODULE 02</span>
+                <h2 class="module-card__title">Threat Modeling &amp; Risk</h2>
+              </div>
+            </div>
+            <p class="module-card__summary">Analyze system architectures, identify potential threat vectors, and apply
+              STRIDE threat modeling methodologies.</p>
+            <a href="module-detail.html?id=02" class="module-card__action">View Module details <span>→</span></a>
+          </div>
+
+          <!-- Module 3: Cryptography & PKI -->
+          <div class="module-card" id="module-3">
+            <div class="module-card__header">
+              <div class="iso-icon-tile iso-icon-tile--blue">
+                <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <circle cx="12" cy="12" r="10" stroke="url(#hero-brand-grad)" stroke-width="2" />
+                  <path d="M8 12h8M12 8v8" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+                </svg>
+              </div>
+              <div>
+                <span class="module-card__label module-card__label--blue">MODULE 03</span>
+                <h2 class="module-card__title">Cryptography &amp; PKI</h2>
+              </div>
+            </div>
+            <p class="module-card__summary">Understand encryption algorithms, symmetric vs. asymmetric systems, and PKI
+              components.</p>
+            <a href="module-detail.html?id=03" class="module-card__action">View Module details <span>→</span></a>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- ── Group 2: Host & Network Security ──────────────────── -->
+      <section class="module-group">
+        <div class="module-group__header">
+          <h3 class="module-group__title">Host &amp; Network Security</h3>
+          <span class="module-group__badge">Infrastructure &amp; Audit</span>
+        </div>
+        <div class="modules-grid">
+
+          <!-- Module 4: Secure Virtualization & Sandboxing -->
+          <div class="module-card" id="module-4">
+            <div class="module-card__header">
+              <div class="iso-icon-tile">
+                <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M2 17l10 5 10-5M2 12l10 5 10-5M12 2L2 7l10 5 10-5-10-5z" stroke="url(#hero-brand-grad)"
+                    stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                </svg>
+              </div>
+              <div>
+                <span class="module-card__label">MODULE 04</span>
+                <h2 class="module-card__title">Virtualization &amp; Sandboxes</h2>
+              </div>
+            </div>
+            <p class="module-card__summary">Study hypervisor architectures, virtual machine configuration, and sandbox
+              containment practices.</p>
+            <a href="module-detail.html?id=04" class="module-card__action">View Module details <span>→</span></a>
+          </div>
+
+          <!-- Module 5: Linux CLI & Security Diagnostics -->
+          <div class="module-card" id="module-5">
+            <div class="module-card__header">
+              <div class="iso-icon-tile iso-icon-tile--secondary">
+                <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M4 17l6-5-6-5M12 19h8" stroke="url(#hero-brand-grad)" stroke-width="2" stroke-linecap="round"
+                    stroke-linejoin="round" />
+                </svg>
+              </div>
+              <div>
+                <span class="module-card__label module-card__label--secondary">MODULE 05</span>
+                <h2 class="module-card__title">Linux CLI &amp; Diagnostics</h2>
+              </div>
+            </div>
+            <p class="module-card__summary">Master fundamental command-line utilities for security investigations,
+              audits, and configuration.</p>
+            <a href="module-detail.html?id=05" class="module-card__action">View Module details <span>→</span></a>
+          </div>
+
+          <!-- Module 6: Network Mapping & Port Auditing -->
+          <div class="module-card" id="module-6">
+            <div class="module-card__header">
+              <div class="iso-icon-tile iso-icon-tile--blue">
+                <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <circle cx="12" cy="12" r="10" stroke="url(#hero-brand-grad)" stroke-width="2" />
+                  <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"
+                    stroke="currentColor" stroke-width="1.5" />
+                  <path d="M2 12h20" stroke="currentColor" stroke-width="1.5" />
+                </svg>
+              </div>
+              <div>
+                <span class="module-card__label module-card__label--blue">MODULE 06</span>
+                <h2 class="module-card__title">Network Mapping &amp; Nmap</h2>
+              </div>
+            </div>
+            <p class="module-card__summary">Learn port scanning methodologies, service detection, and Nmap firewall
+              evasion flags.</p>
+            <a href="module-detail.html?id=06" class="module-card__action">View Module details <span>→</span></a>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- ── Group 3: Web Application Defense ──────────────────── -->
+      <section class="module-group">
+        <div class="module-group__header">
+          <h3 class="module-group__title">Web Application Defense</h3>
+          <span class="module-group__badge">Defending the Stack</span>
+        </div>
+        <div class="modules-grid">
+
+          <!-- Module 7: Password Auditing & Entropy Analysis -->
+          <div class="module-card" id="module-7">
+            <div class="module-card__header">
+              <div class="iso-icon-tile">
+                <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <rect x="5" y="11" width="14" height="10" rx="2" stroke="url(#hero-brand-grad)" stroke-width="2" />
+                  <path d="M12 2a5 5 0 0 0-5 5v4h10V7a5 5 0 0 0-5-5z" stroke="url(#hero-brand-grad)" stroke-width="2" />
+                </svg>
+              </div>
+              <div>
+                <span class="module-card__label">MODULE 07</span>
+                <h2 class="module-card__title">Password Strength &amp; Entropy</h2>
+              </div>
+            </div>
+            <p class="module-card__summary">Estimate password strength mathematically using Shannon Entropy and study
+              auditing tools.</p>
+            <a href="module-detail.html?id=07" class="module-card__action">View Module details <span>→</span></a>
+          </div>
+
+          <!-- Module 8: Secure User Sessions & Authenticator Hygiene -->
+          <div class="module-card" id="module-8">
+            <div class="module-card__header">
+              <div class="iso-icon-tile iso-icon-tile--secondary">
+                <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <rect x="3" y="11" width="18" height="11" rx="2" stroke="url(#hero-brand-grad)" stroke-width="2" />
+                  <path d="M7 11V7a5 5 0 0 1 10 0v4" stroke="currentColor" stroke-width="2" />
+                  <circle cx="12" cy="16" r="1.5" fill="currentColor" />
+                </svg>
+              </div>
+              <div>
+                <span class="module-card__label module-card__label--secondary">MODULE 08</span>
+                <h2 class="module-card__title">Session &amp; Authenticator Hygiene</h2>
+              </div>
+            </div>
+            <p class="module-card__summary">Implement secure login sessions, protect credentials in storage, and defend
+              against brute-force attacks.</p>
+            <a href="module-detail.html?id=08" class="module-card__action">View Module details <span>→</span></a>
+          </div>
+
+          <!-- Module 9: Web Injection Defenses & Client Headers -->
+          <div class="module-card" id="module-9">
+            <div class="module-card__header">
+              <div class="iso-icon-tile iso-icon-tile--blue">
+                <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <rect x="3" y="4" width="18" height="16" rx="2" stroke="url(#hero-brand-grad)" stroke-width="2" />
+                  <path d="M3 9h18M9 20V9" stroke="currentColor" stroke-width="1.5" />
+                </svg>
+              </div>
+              <div>
+                <span class="module-card__label module-card__label--blue">MODULE 09</span>
+                <h2 class="module-card__title">Web Injection &amp; Client Headers</h2>
+              </div>
+            </div>
+            <p class="module-card__summary">Protect applications against SQL Injection (SQLi) and Cross-Site Scripting
+              (XSS) with validation and security headers.</p>
+            <a href="module-detail.html?id=09" class="module-card__action">View Module details <span>→</span></a>
+          </div>
+
+        </div>
+      </section>
+
+      <div class="labs-intro mt-8">
+        <p>For full technical checklists and standard specifications, explore the <a
+            href="https://owasp.org/www-project-top-ten/" target="_blank" rel="noopener">OWASP Top Ten Project</a>
+          guidelines.</p>
+      </div>
+    </main>
+
+    <!-- ── Modern Premium Footer ───────────────────────────────── -->
+    <footer class="site-footer">
+      <div class="site-footer__container">
+        <div class="site-footer__brand">
+          <a href="index.html" class="site-footer__logo">
+            <svg class="site-footer__logo-img" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
+              <defs>
+                <linearGradient id="footer-logo-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+                  <stop offset="0%" stop-color="#6D3FE0" />
+                  <stop offset="100%" stop-color="#E0459C" />
+                </linearGradient>
+              </defs>
+              <rect x="2" y="2" width="28" height="28" rx="8" fill="#110822" stroke="url(#footer-logo-grad)"
+                stroke-width="2" />
+              <circle cx="16" cy="16" r="6" fill="url(#footer-logo-grad)" />
+            </svg>
+            <span class="site-footer__logo-text">CyberOps</span>
+          </a>
+          <p class="site-footer__tagline">Security awareness operations center. Protecting identities and building
+            proactive defense systems.</p>
+        </div>
+        <div class="site-footer__links-col">
+          <span class="site-footer__links-title">Core Curriculum</span>
+          <ul class="site-footer__links">
+            <li><a href="modules.html" class="site-footer__link">Learning Modules</a></li>
+            <li><a href="labs.html" class="site-footer__link">Cyber Labs</a></li>
+            <li><a href="games.html" class="site-footer__link">Interactive Simulations</a></li>
+          </ul>
+        </div>
+        <div class="site-footer__links-col">
+          <span class="site-footer__links-title">Resources</span>
+          <ul class="site-footer__links">
+            <li><a href="certifications.html" class="site-footer__link">Certification Pathways</a></li>
+            <li><a href="https://owasp.org" target="_blank" rel="noopener" class="site-footer__link">OWASP
+                Foundation</a></li>
+            <li><a href="https://cisa.gov" target="_blank" rel="noopener" class="site-footer__link">CISA Security
+                Tips</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="site-footer__bottom">
+        <span class="site-footer__copyright">&copy; 2026 CyberOps. All rights reserved. SOC-Dashboard Console.</span>
+      </div>
+    </footer>
+  </div>
+
+  <script src="js/utils.js"></script>
+  <script src="js/navigation.js"></script>
+  <script src="js/chatbot.js"></script>
+  <script src="js/progress.js"></script>
+  <!-- Note: js/modules.js is simplified and handles the card grid link decoration, but detail interactive bindings are in module-detail.js -->
+  <script src="js/modules.js"></script>
+</body>
+
+</html>

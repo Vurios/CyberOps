@@ -1,0 +1,117 @@
+/* ============================================================
+   LABS — Hands-On Cyber Labs Grid
+   ============================================================ */
+
+.labs-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: var(--space-6);
+  justify-content: center;
+}
+
+.lab-card {
+  background: var(--bg-surface);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-lg);
+  padding: var(--space-5);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+  box-shadow: var(--shadow-md);
+  transition: var(--transition);
+  width: 100%;
+  min-height: 230px;
+  box-sizing: border-box;
+}
+
+.lab-card:hover {
+  border-color: var(--border-color-hover);
+}
+
+
+.lab-card__header {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-4);
+  margin-bottom: var(--space-2);
+}
+
+.lab-card__title-group {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+}
+
+.lab-card__tag {
+  align-self: flex-start;
+}
+
+.lab-card__title {
+  font-size: var(--text-xl);
+  font-weight: 800;
+  color: var(--text-primary);
+  margin-bottom: 0;
+}
+
+.lab-card__description {
+  font-size: var(--text-sm);
+  color: var(--text-secondary);
+  line-height: 1.6;
+  margin-bottom: var(--space-2);
+  display: -webkit-box;
+  -webkit-line-clamp: 4;
+  line-clamp: 4;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  height: auto;
+  flex-shrink: 0;
+}
+
+.lab-card__action {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  font-family: var(--font-mono);
+  font-size: var(--text-sm);
+  font-weight: 700;
+  color: var(--accent-primary);
+  text-decoration: none;
+  transition: var(--transition-fast);
+  align-self: flex-start;
+  margin-top: auto;
+}
+
+.lab-card__action:hover {
+  color: var(--text-primary);
+  text-decoration: none;
+}
+
+.lab-card__action-arrow {
+  transition: var(--transition-fast);
+}
+
+.lab-card__action:hover .lab-card__action-arrow {
+  transform: translateX(3px);
+}
+
+/* ── Lab Warning Banner ────────────────────────────────────── */
+.labs-disclaimer {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-3);
+  padding: var(--space-4) var(--space-5);
+  background: var(--accent-amber-soft);
+  border: 1px solid rgba(245, 158, 11, 0.2);
+  border-radius: var(--radius);
+  margin-bottom: var(--space-8);
+  font-size: var(--text-sm);
+  color: var(--text-secondary);
+  line-height: 1.65;
+}
+
+.labs-disclaimer__icon {
+  font-size: var(--text-lg);
+  color: var(--accent-amber);
+  flex-shrink: 0;
+  margin-top: 1px;
+}

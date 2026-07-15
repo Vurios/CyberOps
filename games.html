@@ -1,0 +1,471 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="Content-Security-Policy"
+    content="default-src 'self'; script-src 'self'; style-src 'self' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data:; object-src 'none';">
+  <meta name="description"
+    content="Interactive cybersecurity simulations — Nmap Port Scanner Simulator, Phishing Sandbox Threat Detector, Brute-Force Entropy Estimator, Incident Response Playbook, and Hacker Chat Defense.">
+  <title>CyberOps — Interactive Simulations</title>
+  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="css/variables.css">
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/components.css">
+  <link rel="stylesheet" href="css/navigation.css">
+  <link rel="stylesheet" href="css/games.css">
+  <link rel="stylesheet" href="css/chatbot.css">
+</head>
+
+<body>
+  <!-- Shared SVG Gradients Defs -->
+  <svg class="hidden-svg-defs" aria-hidden="true">
+    <defs>
+      <linearGradient id="hero-brand-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+        <stop offset="0%" stop-color="#6D3FE0" />
+        <stop offset="100%" stop-color="#E0459C" />
+      </linearGradient>
+      <linearGradient id="hero-blue-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+        <stop offset="0%" stop-color="#2F6FED" />
+        <stop offset="100%" stop-color="#0c0418" />
+      </linearGradient>
+    </defs>
+  </svg>
+
+  <div class="app-layout">
+
+    <!-- ── Sticky Top Navigation Bar ────────────────────────── -->
+    <header class="top-nav">
+      <div class="nav-container">
+        <a href="index.html" class="nav-brand">
+          <div class="nav-logo">
+            <svg viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
+              <rect x="2" y="2" width="28" height="28" rx="8" fill="#110822" stroke="url(#hero-brand-grad)"
+                stroke-width="2.5" />
+              <circle cx="16" cy="16" r="6" fill="url(#hero-brand-grad)" />
+            </svg>
+          </div>
+          <div class="nav-brand-text">
+            <span class="nav-title">CyberOps</span>
+            <span class="nav-subtitle">Security Awareness</span>
+          </div>
+        </a>
+
+        <div class="nav-links-wrapper">
+          <ul class="nav-links">
+            <li><a href="index.html" class="nav-link">Dashboard</a></li>
+            <li><a href="modules.html" class="nav-link">Learning Modules</a></li>
+            <li><a href="labs.html" class="nav-link">Cyber Labs</a></li>
+            <li><a href="games.html" class="nav-link nav-link--active">Simulations</a></li>
+            <li><a href="certifications.html" class="nav-link">Certifications</a></li>
+          </ul>
+
+          <button type="button" class="nav-hamburger" aria-label="Toggle navigation" aria-expanded="false">
+            <span class="nav-hamburger__line"></span>
+            <span class="nav-hamburger__line"></span>
+            <span class="nav-hamburger__line"></span>
+          </button>
+        </div>
+      </div>
+
+      <!-- Mobile dropdown panel -->
+      <div class="nav-dropdown" id="nav-dropdown">
+        <a href="index.html" class="nav-dropdown__link">Dashboard</a>
+        <a href="modules.html" class="nav-dropdown__link">Learning Modules</a>
+        <a href="labs.html" class="nav-dropdown__link">Cyber Labs</a>
+        <a href="games.html" class="nav-dropdown__link nav-dropdown__link--active">Simulations</a>
+        <a href="certifications.html" class="nav-dropdown__link">Certifications</a>
+      </div>
+    </header>
+
+    <!-- ── Main Content ───────────────────────────────────── -->
+    <main class="main-content">
+      <section class="hero-section hero-section--subpage">
+        <div class="hero-content">
+          <span class="badge badge--gradient">Simulations</span>
+          <h1 class="hero-title">Interactive Simulations</h1>
+          <p class="hero-desc">// simulation_engine: active — scenarios_loaded: 5 — mode: training</p>
+          <p class="hero-intro-text">Interactive threat exercises and simulations designed to test your cybersecurity
+            decision-making and analytical skills. These simulators mirror the decision-making pressure of real incident
+            response.</p>
+        </div>
+
+        <!-- Decision Waveform SVG (Distinct for Simulations) -->
+        <div class="orbital-hero" aria-hidden="true">
+          <div class="orbital-hero__glow"></div>
+          <svg class="orbital-hero__svg" viewBox="0 0 320 320" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <!-- Glowing decision tree connection paths -->
+            <path d="M40 160 L100 160 L140 100 L220 100 L260 160 L280 160" stroke="rgba(109, 63, 224, 0.25)"
+              stroke-width="2" />
+            <path d="M100 160 L140 220 L220 220 L260 160" stroke="rgba(109, 63, 224, 0.25)" stroke-width="2" />
+
+            <!-- Glowing waveform sine path overlapping -->
+            <path d="M30 160 Q60 60 90 160 T150 160 T210 160 T270 160" stroke="url(#hero-brand-grad)" stroke-width="1.5"
+              stroke-linecap="round" />
+            <path d="M30 160 Q60 60 90 160 T150 160 T210 160 T270 160" stroke="url(#hero-brand-grad)" stroke-width="6"
+              stroke-linecap="round" opacity="0.12" />
+
+            <!-- Decision Nodes -->
+            <g transform="translate(100, 160)">
+              <circle cx="0" cy="0" r="8" fill="#110822" stroke="var(--accent-primary)" stroke-width="2" />
+              <circle cx="0" cy="0" r="3" fill="var(--text-primary)" />
+            </g>
+
+            <g transform="translate(180, 100)">
+              <circle cx="0" cy="0" r="10" fill="#110822" stroke="rgba(224, 69, 156, 0.6)" stroke-width="2" />
+              <circle cx="0" cy="0" r="4" fill="var(--accent-green)" />
+            </g>
+
+            <g transform="translate(180, 220)">
+              <circle cx="0" cy="0" r="10" fill="#110822" stroke="rgba(47, 111, 237, 0.6)" stroke-width="2" />
+              <circle cx="0" cy="0" r="4" fill="var(--accent-red)" />
+            </g>
+
+            <g transform="translate(260, 160)">
+              <circle cx="0" cy="0" r="8" fill="#110822" stroke="var(--accent-primary)" stroke-width="2" />
+            </g>
+
+            <!-- Floating digital grid elements -->
+            <line x1="40" y1="120" x2="60" y2="120" stroke="var(--text-secondary)" stroke-width="1" opacity="0.3" />
+            <line x1="50" y1="110" x2="50" y2="130" stroke="var(--text-secondary)" stroke-width="1" opacity="0.3" />
+            <text x="210" y="85" fill="var(--accent-green)" font-family="var(--font-mono)" font-size="8"
+              opacity="0.8">TRUE</text>
+            <text x="210" y="245" fill="var(--accent-red)" font-family="var(--font-mono)" font-size="8"
+              opacity="0.8">FALSE</text>
+          </svg>
+        </div>
+      </section>
+      <!-- Sticky In-Page Navigation (Simulations TOC) -->
+      <nav class="toc-nav" aria-label="Table of contents">
+        <ul class="toc-links">
+          <li><a href="#nmap-sim" class="toc-link">Nmap Scanner</a></li>
+          <li><a href="#ir-sim" class="toc-link">Incident Response</a></li>
+          <li><a href="#chat-sim" class="toc-link">Social Engineering</a></li>
+          <li><a href="#phishing-sim" class="toc-link">Phishing Detector</a></li>
+          <li><a href="#entropy-sim" class="toc-link">Password Entropy</a></li>
+        </ul>
+      </nav>
+
+      <!-- ════════════════════════════════════════════════════ -->
+      <!-- GAME A: Nmap Port Scanner Simulator                 -->
+      <!-- ════════════════════════════════════════════════════ -->
+      <section class="game-section" id="nmap-sim">
+        <div class="game-section__header">
+          <div class="iso-icon-tile">
+            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <circle cx="12" cy="12" r="9" stroke="url(#hero-brand-grad)" stroke-width="2" />
+              <line x1="12" y1="1" x2="12" y2="23" stroke="#EDEFF3" stroke-width="1.5" />
+              <line x1="1" y1="12" x2="23" y2="12" stroke="#EDEFF3" stroke-width="1.5" />
+            </svg>
+          </div>
+          <div class="game-section__title-group">
+            <span class="badge badge--gradient">Simulation</span>
+            <h2 class="game-section__title">Nmap Port Scanner Simulator</h2>
+          </div>
+        </div>
+        <p class="game-section__desc">Enter an Nmap command or select a preset scan profile. This simulator demonstrates
+          how administrators and auditors scan network boundaries to audit active configurations and spot security
+          exposure. Click on open ports to analyze vulnerabilities.</p>
+
+        <div class="nmap-controls">
+          <select id="nmap-select" class="nmap-select" aria-label="Select scan profile">
+            <option value="">— Select a preset scan —</option>
+            <option value="nmap -sV target.local">nmap -sV target.local (Service Detection)</option>
+            <option value="nmap -sn 192.168.1.0/24">nmap -sn 192.168.1.0/24 (Ping Scan)</option>
+            <option value="nmap -O target.local">nmap -O target.local (OS Fingerprinting)</option>
+            <option value="nmap -p- target.local">nmap -p- target.local (Full Port Audit)</option>
+            <option value="nmap -A target.local">nmap -A target.local (Aggressive Scan)</option>
+          </select>
+          <button type="button" id="nmap-run" class="btn btn--primary btn--sm">Execute Scan</button>
+          <button type="button" id="nmap-clear" class="btn btn--secondary btn--sm">Clear</button>
+        </div>
+
+        <div class="terminal">
+          <div class="terminal__header">
+            <span class="terminal__dot terminal__dot--red"></span>
+            <span class="terminal__dot terminal__dot--yellow"></span>
+            <span class="terminal__dot terminal__dot--green"></span>
+            <span class="terminal__title">nmap-simulator — bash</span>
+          </div>
+          <div class="terminal__body" id="nmap-output">
+            <div class="terminal__line terminal__line--muted">Awaiting scan command...</div>
+          </div>
+          <div class="terminal__input-row">
+            <span class="terminal__prompt">root@kali:~$ </span>
+            <input type="text" id="nmap-input" class="terminal__input" placeholder="Enter nmap command..."
+              autocomplete="off" spellcheck="false">
+          </div>
+        </div>
+
+        <div id="nmap-results" class="nmap-results"></div>
+      </section>
+
+      <!-- ════════════════════════════════════════════════════ -->
+      <!-- GAME B: Incident Response Playbook                  -->
+      <!-- ════════════════════════════════════════════════════ -->
+      <section class="game-section" id="ir-sim">
+        <div class="game-section__header">
+          <div class="iso-icon-tile">
+            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" stroke="url(#hero-brand-grad)" stroke-width="2" />
+              <line x1="12" y1="8" x2="12" y2="12" stroke="#EDEFF3" stroke-width="2" stroke-linecap="round" />
+              <circle cx="12" cy="16" r="1" fill="#EDEFF3" />
+            </svg>
+          </div>
+          <div class="game-section__title-group">
+            <span class="badge badge--gradient">Incident Response</span>
+            <h2 class="game-section__title">Incident Response Playbook</h2>
+          </div>
+        </div>
+        <p class="game-section__desc">Select a security incident scenario and click Start to contain the threat.
+          Sequence and speed are critical. Select the correct options in order to neutralize the vector before the
+          corruption meter maxes out.</p>
+
+        <div class="ir-controls">
+          <select id="ir-scenario-select" class="ir-scenario-select" aria-label="Select Incident Scenario">
+            <option value="ransomware">Ransomware Containment</option>
+            <option value="exfiltration">Insider Data Exfiltration</option>
+            <option value="bec">Business Email Compromise (BEC)</option>
+            <option value="ddos">DDoS Mitigation</option>
+          </select>
+          <button type="button" id="ir-start-btn" class="btn btn--primary btn--sm">Start Triage Mission</button>
+        </div>
+
+        <div class="ir-meter-container">
+          <div class="ir-status-group">
+            <span class="mono ir-label">System Corruption:</span>
+            <span id="ir-damage-percent" class="mono text-red ir-value">0%</span>
+          </div>
+          <div class="damage-meter">
+            <div id="ir-damage-fill" class="damage-fill"></div>
+          </div>
+        </div>
+
+        <div class="triage-actions" id="ir-actions-container">
+          <!-- Dynamically populated by incident-response.js -->
+        </div>
+
+        <div id="ir-status" class="mono ir-status-box">
+          // Incident engine idle. Click Start to initialize.
+        </div>
+      </section>
+
+      <!-- ════════════════════════════════════════════════════ -->
+      <!-- GAME C: Hacker Chat Defense                         -->
+      <!-- ════════════════════════════════════════════════════ -->
+      <section class="game-section" id="chat-sim">
+        <div class="game-section__header">
+          <div class="iso-icon-tile">
+            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" stroke="url(#hero-brand-grad)"
+                stroke-width="2" />
+              <circle cx="12" cy="10" r="2" fill="#EDEFF3" />
+            </svg>
+          </div>
+          <div class="game-section__title-group">
+            <span class="badge badge--gradient">Dialogue Defense</span>
+            <h2 class="game-section__title">Hacker Chat Defense Simulator</h2>
+          </div>
+        </div>
+        <p class="game-section__desc">Practice defending against social engineering. An adversary posing as an
+          administrator has initiated a chat. Learn to spot psychological triggers like authority and urgency, and
+          select safe compliance options to block the attempt.</p>
+
+        <div class="chat-controls">
+          <select id="chat-scenario-select" class="ir-scenario-select" aria-label="Select Chat Scenario">
+            <option value="mfa">MFA Verification Request (DICT Director)</option>
+            <option value="helpdesk">IT Helpdesk Reset Scam</option>
+            <option value="invoice">Urgent Vendor Invoice Scam</option>
+            <option value="ceo">CEO wire-transfer request</option>
+          </select>
+          <button type="button" id="chat-init-btn" class="btn btn--primary btn--sm">Initialize Communication</button>
+        </div>
+
+        <div class="chat-window">
+          <div id="chat-feed-container" class="chat-feed">
+            <div class="chat-bubble chat-bubble--system">System: Dialogue interface idle. Click Initialize to establish
+              secure communication node.</div>
+          </div>
+          <div id="chat-options-container" class="chat-options-panel">
+            <div class="chat-offline">Communication offline</div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ════════════════════════════════════════════════════ -->
+      <!-- GAME D: Phishing Sandbox Threat Detector            -->
+      <!-- ════════════════════════════════════════════════════ -->
+      <section class="game-section" id="phishing-sim">
+        <div class="game-section__header">
+          <div class="iso-icon-tile">
+            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"
+                stroke="url(#hero-brand-grad)" stroke-width="2" />
+              <path d="M22 6l-10 7L2 6" stroke="url(#hero-brand-grad)" stroke-width="1.5" />
+              <path d="M12 11v6" stroke="#EDEFF3" stroke-width="2" stroke-linecap="round" />
+            </svg>
+          </div>
+          <div class="game-section__title-group">
+            <span class="badge badge--gradient">Threat Detection</span>
+            <h2 class="game-section__title">Phishing Sandbox Threat Detector</h2>
+          </div>
+        </div>
+        <p class="game-section__desc">Review the sandbox inbox below. Spot email threat indicators. Click on suspicious
+          elements—such as misspelled sender domains, urgent calls to action, masked links, or fake files—to flag them,
+          then classify the email.</p>
+
+        <!-- Score Dashboard -->
+        <div class="phishing-score">
+          <div class="phishing-score__item">
+            <div class="phishing-score__value text-green" id="phishing-accuracy">0%</div>
+            <div class="phishing-score__label">Accuracy</div>
+          </div>
+          <div class="phishing-score__item">
+            <div class="phishing-score__value text-amber" id="phishing-threats">0/12</div>
+            <div class="phishing-score__label">Flags Found</div>
+          </div>
+          <div class="phishing-score__item">
+            <div class="phishing-score__value text-red" id="phishing-fp">0</div>
+            <div class="phishing-score__label">False Positives</div>
+          </div>
+        </div>
+
+        <div class="phishing-inbox" id="phishing-container">
+          <div class="inbox-list" id="inbox-list">
+            <!-- Populated by phishing-detector.js -->
+          </div>
+          <div class="email-viewer" id="email-viewer">
+            <div class="email-viewer__empty">Select an email to inspect</div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ════════════════════════════════════════════════════ -->
+      <!-- UTILITY: Brute-Force Entropy Estimator              -->
+      <!-- ════════════════════════════════════════════════════ -->
+      <section class="game-section" id="entropy-sim">
+        <div class="game-section__header">
+          <div class="iso-icon-tile">
+            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path
+                d="M12 2a10 10 0 0 0-10 10c0 5.5 4.5 10 10 10s10-4.5 10-10A10 10 0 0 0 12 2zm0 15a5 5 0 1 1 0-10 5 5 0 0 1 0 10z"
+                stroke="url(#hero-brand-grad)" stroke-width="2" />
+              <line x1="12" y1="12" x2="16" y2="12" stroke="#EDEFF3" stroke-width="2" stroke-linecap="round" />
+            </svg>
+          </div>
+          <div class="game-section__title-group">
+            <span class="badge badge--gradient">Utility</span>
+            <h2 class="game-section__title">Brute-Force Entropy Estimator</h2>
+          </div>
+        </div>
+        <p class="game-section__desc">Type a password below to calculate its Shannon entropy and estimate the time it
+          would take to compromise it. Compare quick wordlist checking against exhaustive brute-force calculations to
+          understand the importance of password length and complexity.</p>
+
+        <div class="entropy-panel">
+          <div class="entropy-input-group">
+            <label for="entropy-input">Test Password</label>
+            <input type="text" id="entropy-input" class="entropy-input" placeholder="Enter a password..."
+              autocomplete="off" spellcheck="false">
+          </div>
+
+          <div class="entropy-meter">
+            <div class="entropy-meter__seg"></div>
+            <div class="entropy-meter__seg"></div>
+            <div class="entropy-meter__seg"></div>
+            <div class="entropy-meter__seg"></div>
+            <div class="entropy-meter__seg"></div>
+          </div>
+
+          <div class="entropy-label" id="entropy-label">Enter a password to analyze</div>
+
+          <div class="entropy-stats">
+            <div class="entropy-stat">
+              <div class="entropy-stat__label">Entropy</div>
+              <div class="entropy-stat__value" id="stat-entropy">—</div>
+            </div>
+            <div class="entropy-stat">
+              <div class="entropy-stat__label">Character Pool</div>
+              <div class="entropy-stat__value" id="stat-pool">—</div>
+            </div>
+            <div class="entropy-stat">
+              <div class="entropy-stat__label">Character Sets</div>
+              <div class="entropy-stat__value" id="stat-charsets">—</div>
+            </div>
+            <div class="entropy-stat">
+              <div class="entropy-stat__label">Wordlist Mode</div>
+              <div class="entropy-stat__value" id="stat-wordlist">—</div>
+            </div>
+            <div class="entropy-stat">
+              <div class="entropy-stat__label">Incremental Mode</div>
+              <div class="entropy-stat__value" id="stat-incremental">—</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+    </main>
+    <!-- ── Modern Premium Footer ───────────────────────────────── -->
+    <footer class="site-footer">
+      <div class="site-footer__container">
+        <div class="site-footer__brand">
+          <a href="index.html" class="site-footer__logo">
+            <svg class="site-footer__logo-img" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
+              <defs>
+                <linearGradient id="footer-logo-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+                  <stop offset="0%" stop-color="#6D3FE0" />
+                  <stop offset="100%" stop-color="#E0459C" />
+                </linearGradient>
+              </defs>
+              <rect x="2" y="2" width="28" height="28" rx="8" fill="#110822" stroke="url(#footer-logo-grad)"
+                stroke-width="2" />
+              <circle cx="16" cy="16" r="6" fill="url(#footer-logo-grad)" />
+            </svg>
+            <span class="site-footer__logo-text">CyberOps</span>
+          </a>
+          <p class="site-footer__tagline">Security awareness operations center. Protecting identities and building
+            proactive defense systems.</p>
+        </div>
+        <div class="site-footer__links-col">
+          <span class="site-footer__links-title">Core Curriculum</span>
+          <ul class="site-footer__links">
+            <li><a href="modules.html" class="site-footer__link">Learning Modules</a></li>
+            <li><a href="labs.html" class="site-footer__link">Cyber Labs</a></li>
+            <li><a href="games.html" class="site-footer__link">Interactive Simulations</a></li>
+          </ul>
+        </div>
+        <div class="site-footer__links-col">
+          <span class="site-footer__links-title">Resources</span>
+          <ul class="site-footer__links">
+            <li><a href="certifications.html" class="site-footer__link">Certification Pathways</a></li>
+            <li><a href="https://owasp.org" target="_blank" rel="noopener" class="site-footer__link">OWASP
+                Foundation</a></li>
+            <li><a href="https://cisa.gov" target="_blank" rel="noopener" class="site-footer__link">CISA Security
+                Tips</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="site-footer__bottom">
+        <span class="site-footer__copyright">&copy; 2026 CyberOps. All rights reserved. SOC-Dashboard Console.</span>
+      </div>
+    </footer>
+  </div>
+
+  <script src="js/utils.js"></script>
+  <script src="js/navigation.js"></script>
+  <script src="js/chatbot.js"></script>
+  <script src="js/nmap-simulator.js"></script>
+  <script src="js/incident-response.js"></script>
+  <script src="js/social-engineering.js"></script>
+  <script src="js/phishing-detector.js"></script>
+  <script src="js/entropy-estimator.js"></script>
+  <script src="js/games.js"></script>
+</body>
+
+</html>

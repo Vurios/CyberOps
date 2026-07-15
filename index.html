@@ -1,0 +1,602 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="Content-Security-Policy"
+    content="default-src 'self'; script-src 'self'; style-src 'self' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data:; object-src 'none';">
+  <meta name="description"
+    content="CyberOps Security Operations Command Center. Hands-on training, interactive simulations, and certification prep.">
+  <title>CyberOps — Security Operations Center</title>
+  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="css/variables.css">
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/components.css">
+  <link rel="stylesheet" href="css/navigation.css">
+  <link rel="stylesheet" href="css/chatbot.css">
+</head>
+
+<body>
+  <!-- Shared SVG Gradients Defs -->
+  <svg class="hidden-svg-defs" aria-hidden="true">
+    <defs>
+      <linearGradient id="hero-brand-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+        <stop offset="0%" stop-color="#6D3FE0" />
+        <stop offset="100%" stop-color="#E0459C" />
+      </linearGradient>
+      <linearGradient id="hero-blue-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+        <stop offset="0%" stop-color="#2F6FED" />
+        <stop offset="100%" stop-color="#0c0418" />
+      </linearGradient>
+    </defs>
+  </svg>
+
+  <div class="app-layout">
+
+    <!-- ── Sticky Top Navigation Bar ────────────────────────── -->
+    <header class="top-nav">
+      <div class="nav-container">
+        <a href="index.html" class="nav-brand">
+          <div class="nav-logo">
+            <svg viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
+              <rect x="2" y="2" width="28" height="28" rx="8" fill="#110822" stroke="url(#hero-brand-grad)"
+                stroke-width="2.5" />
+              <circle cx="16" cy="16" r="6" fill="url(#hero-brand-grad)" />
+            </svg>
+          </div>
+          <div class="nav-brand-text">
+            <span class="nav-title">CyberOps</span>
+            <span class="nav-subtitle">Security Awareness</span>
+          </div>
+        </a>
+
+        <div class="nav-links-wrapper">
+          <ul class="nav-links">
+            <li><a href="index.html" class="nav-link nav-link--active">Dashboard</a></li>
+            <li><a href="modules.html" class="nav-link">Learning Modules</a></li>
+            <li><a href="labs.html" class="nav-link">Cyber Labs</a></li>
+            <li><a href="games.html" class="nav-link">Simulations</a></li>
+            <li><a href="certifications.html" class="nav-link">Certifications</a></li>
+          </ul>
+
+          <button type="button" class="nav-hamburger" aria-label="Toggle navigation" aria-expanded="false">
+            <span class="nav-hamburger__line"></span>
+            <span class="nav-hamburger__line"></span>
+            <span class="nav-hamburger__line"></span>
+          </button>
+        </div>
+      </div>
+
+      <!-- Mobile dropdown panel -->
+      <div class="nav-dropdown" id="nav-dropdown">
+        <a href="index.html" class="nav-dropdown__link nav-dropdown__link--active">Dashboard</a>
+        <a href="modules.html" class="nav-dropdown__link">Learning Modules</a>
+        <a href="labs.html" class="nav-dropdown__link">Cyber Labs</a>
+        <a href="games.html" class="nav-dropdown__link">Simulations</a>
+        <a href="certifications.html" class="nav-dropdown__link">Certifications</a>
+      </div>
+    </header>
+
+    <!-- ── Main Content ───────────────────────────────────── -->
+    <main class="main-content">
+      <section class="hero-section">
+        <div class="hero-content">
+          <span class="badge badge--gradient">Security Awareness</span>
+          <h1 class="hero-title">Learn to Spot Threats and Build Safer Habits</h1>
+          <p class="hero-desc">Welcome to the CyberOps security awareness center. Understand key security concepts,
+            explore baseline website protection steps, recognize threat indicators, and build strong daily defense
+            habits.</p>
+          <div class="hero-actions">
+            <a href="games.html" class="btn btn--primary">Try Simulations</a>
+            <a href="modules.html" class="btn btn--secondary">Read Modules</a>
+          </div>
+        </div>
+
+        <!-- Glowing Reworked Orbital Hero SVG -->
+        <div class="orbital-hero" aria-hidden="true">
+          <div class="orbital-hero__glow"></div>
+          <svg class="orbital-hero__svg" viewBox="0 0 320 320" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <ellipse cx="160" cy="160" rx="140" ry="58" stroke="rgba(109, 63, 224, 0.2)" stroke-width="1.5"
+              transform="rotate(-15 160 160)" />
+            <ellipse cx="160" cy="160" rx="110" ry="46" stroke="rgba(224, 69, 156, 0.15)" stroke-width="1.5"
+              stroke-dasharray="6 6" transform="rotate(20 160 160)" />
+            <ellipse cx="160" cy="160" rx="80" ry="32" stroke="rgba(47, 111, 237, 0.25)" stroke-width="1"
+              transform="rotate(-5 160 160)" />
+            <circle cx="160" cy="160" r="150" stroke="rgba(165, 174, 192, 0.1)" stroke-width="1" />
+
+            <!-- Hub-and-Spoke Glowing Connection Lines -->
+            <g stroke="url(#hero-brand-grad)" stroke-width="1" opacity="0.4">
+              <line x1="160" y1="160" x2="42" y2="118" />
+              <line x1="160" y1="160" x2="254" y2="112" />
+              <line x1="160" y1="160" x2="104" y2="214" />
+              <line x1="160" y1="160" x2="228" y2="202" />
+            </g>
+
+            <g transform="translate(160, 160)">
+              <!-- Outer glowing circle -->
+              <circle cx="0" cy="0" r="34" fill="url(#hero-brand-grad)" opacity="0.15" />
+              <!-- Shield central graphic -->
+              <circle cx="0" cy="0" r="26" fill="#110822" stroke="url(#hero-brand-grad)" stroke-width="2.5" />
+              <path
+                d="M0,-9.5 C3,-9.5 6.5,-8.5 8,-7.5 L8,-1 C8,3.5 5,7.5 0,10 C-5,7.5 -8,3.5 -8,-1 L-8,-7.5 C-6.5,-8.5 -3,-9.5 0,-9.5 Z"
+                fill="none" stroke="var(--text-primary)" stroke-width="1.75" stroke-linejoin="round" />
+            </g>
+
+            <!-- Orbiting Satellite Nodes -->
+            <!-- Curriculum Node -->
+            <g transform="translate(42, 118)">
+              <circle cx="0" cy="0" r="10" fill="#110822" stroke="url(#hero-brand-grad)" stroke-width="1.5" />
+              <circle cx="0" cy="0" r="4" fill="var(--accent-primary)" />
+            </g>
+            <!-- Labs Node -->
+            <g transform="translate(254, 112)">
+              <circle cx="0" cy="0" r="10" fill="#110822" stroke="url(#hero-brand-grad)" stroke-width="1.5" />
+              <circle cx="0" cy="0" r="4" fill="var(--accent-secondary)" />
+            </g>
+            <!-- Sims Node -->
+            <g transform="translate(104, 214)">
+              <circle cx="0" cy="0" r="8" fill="#110822" stroke="url(#hero-blue-grad)" stroke-width="1.5" />
+              <circle cx="0" cy="0" r="3" fill="var(--accent-blue)" />
+            </g>
+            <!-- Certs Node -->
+            <g transform="translate(228, 202)">
+              <circle cx="0" cy="0" r="8" fill="#110822" stroke="url(#hero-blue-grad)" stroke-width="1.5" />
+              <circle cx="0" cy="0" r="3" fill="var(--accent-blue)" />
+            </g>
+
+            <!-- Pulse and Radar sweeping indicators -->
+            <circle cx="160" cy="160" r="115" stroke="var(--accent-primary)" stroke-width="1" stroke-dasharray="1 114"
+              stroke-linecap="round" opacity="0.8" />
+          </svg>
+        </div>
+      </section>
+
+      <!-- ── Tactical Roles / Tabs Bar ─────────────────────────── -->
+      <div class="hero-tabs-wrapper">
+        <div class="hero-tabs">
+          <a href="#teams-section" class="hero-tab">Tactical Roles</a>
+          <a href="#hygiene-tips-section" class="hero-tab">Security Tips</a>
+          <a href="#logs-section" class="hero-tab">Live Activity Feed</a>
+          <a href="modules.html" class="hero-tab">Learning Modules</a>
+        </div>
+      </div>
+
+      <!-- Recommended Path / Continue Learning (populated by progress.js) -->
+      <div id="continue-learning-section"></div>
+
+      <!-- ── Redesigned Dashboard Stats Strip ─────────────────── -->
+      <div class="stats-strip">
+        <div class="stats-strip__item">
+          <span class="stats-strip__value">9 Modules</span>
+          <span class="stats-strip__label">Academic Core Curriculum</span>
+        </div>
+        <div class="stats-strip__item">
+          <span class="stats-strip__value">5 Simulations</span>
+          <span class="stats-strip__label">Interactive Simulators</span>
+        </div>
+        <div class="stats-strip__item">
+          <span class="stats-strip__value">9 Labs</span>
+          <span class="stats-strip__label">Ecosystem Practice Labs</span>
+        </div>
+        <div class="stats-strip__item">
+          <span class="stats-strip__value">9 Certifications</span>
+          <span class="stats-strip__label">Professional Pathways</span>
+        </div>
+      </div>
+
+      <!-- ── Partner Platforms Section ────────────────────────── -->
+      <div class="partner-section">
+        <span class="partner-section__label">Security Education &amp; Testing Platforms</span>
+        <div class="partner-box">
+          <a href="https://tryhackme.com" target="_blank" rel="noopener" class="partner-item">
+            <svg viewBox="0 0 24 24" fill="none" stroke="var(--accent-red)" stroke-width="2" stroke-linecap="round"
+              stroke-linejoin="round">
+              <circle cx="12" cy="12" r="10" />
+              <circle cx="12" cy="12" r="6" />
+              <circle cx="12" cy="12" r="2" />
+            </svg>
+            TryHackMe
+          </a>
+          <a href="https://hackthebox.com" target="_blank" rel="noopener" class="partner-item">
+            <svg viewBox="0 0 24 24" fill="none" stroke="var(--accent-green)" stroke-width="2" stroke-linecap="round"
+              stroke-linejoin="round">
+              <path d="M12 2L2 7l10 5 10-5-10-5z" />
+              <path d="M2 17l10 5 10-5" />
+              <path d="M2 12l10 5 10-5" />
+              <line x1="12" y1="22" x2="12" y2="12" />
+            </svg>
+            HackTheBox
+          </a>
+          <a href="https://portswigger.net" target="_blank" rel="noopener" class="partner-item">
+            <svg viewBox="0 0 24 24" fill="none" stroke="var(--accent-amber)" stroke-width="2" stroke-linecap="round"
+              stroke-linejoin="round">
+              <rect x="3" y="11" width="18" height="11" rx="2" ry="2" />
+              <path d="M7 11V7a5 5 0 0 1 10 0v4" />
+            </svg>
+            PortSwigger
+          </a>
+          <a href="https://overthewire.org" target="_blank" rel="noopener" class="partner-item">
+            <svg viewBox="0 0 24 24" fill="none" stroke="var(--accent-primary)" stroke-width="2" stroke-linecap="round"
+              stroke-linejoin="round">
+              <polyline points="4 17 10 11 4 5" />
+              <line x1="12" y1="19" x2="20" y2="19" />
+            </svg>
+            OverTheWire
+          </a>
+          <a href="https://comptia.org" target="_blank" rel="noopener" class="partner-item">
+            <svg viewBox="0 0 24 24" fill="none" stroke="var(--accent-brand-pink)" stroke-width="2"
+              stroke-linecap="round" stroke-linejoin="round">
+              <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+            </svg>
+            CompTIA
+          </a>
+        </div>
+      </div>
+
+      <!-- Section 1: Tactical Roles (Left Text, Right Visual Grid) -->
+      <section class="alt-section" id="teams-section">
+        <div class="alt-section__container">
+          <div class="alt-section__content">
+            <span class="alt-section__eyebrow">Collaborative Analysis</span>
+            <h2 class="alt-section__heading">Understanding Red &amp; Blue Team Roles</h2>
+            <p class="alt-section__text">
+              Cybersecurity is built on the active collaboration between offensive analysis (Red Team) and defensive
+              guard operations (Blue Team). Together, these teams validate configurations and build secure operational
+              frameworks.
+            </p>
+            <div class="hero-actions">
+              <a href="modules.html" class="btn btn--ghost btn--sm">View Core Modules →</a>
+            </div>
+          </div>
+
+          <div class="alt-section__visual">
+            <!-- Browser Mockup containing Tactical Grid -->
+            <div class="browser-mockup">
+              <div class="browser-mockup__header">
+                <div class="browser-mockup__dots">
+                  <span class="browser-mockup__dot browser-mockup__dot--red"></span>
+                  <span class="browser-mockup__dot browser-mockup__dot--yellow"></span>
+                  <span class="browser-mockup__dot browser-mockup__dot--green"></span>
+                </div>
+                <div class="browser-mockup__address">cyberops://console/tactical-teams</div>
+              </div>
+              <div class="browser-mockup__body">
+                <div class="tactical-grid">
+                  <!-- Red Team Card -->
+                  <div class="card card--red-border card--no-hover">
+                    <div class="card__header">
+                      <span class="badge badge--red">Offensive Ops</span>
+                      <h3 class="card__title">Red Team</h3>
+                    </div>
+                    <p class="card__description card__description--small">Simulates attacks to find security
+                      vulnerabilities before threats do.</p>
+                    <ul class="card-list card-list--small">
+                      <li>Discovering exposed device ports.</li>
+                      <li>Testing weak password entropy.</li>
+                      <li>Identifying misconfigured assets.</li>
+                    </ul>
+                  </div>
+
+                  <!-- Blue Team Card -->
+                  <div class="card card--blue-border card--no-hover">
+                    <div class="card__header">
+                      <span class="badge badge--blue">Defensive Ops</span>
+                      <h3 class="card__title">Blue Team</h3>
+                    </div>
+                    <p class="card__description card__description--small">Monitors active traffic and secures
+                      operational boundaries.</p>
+                    <ul class="card-list card-list--small">
+                      <li>Configuring firewall security headers.</li>
+                      <li>Auditing log outputs for breaches.</li>
+                      <li>Maintaining recovery backups.</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Section 2: Sandbox Hygiene (Mirrored Layout: Visual Left, Text Right) -->
+      <section class="alt-section" id="hygiene-section">
+        <div class="alt-section__container alt-section__container--flipped">
+          <div class="alt-section__content">
+            <span class="alt-section__eyebrow">Device Audit</span>
+            <h2 class="alt-section__heading">Active Sandbox Threat Isolation</h2>
+            <p class="alt-section__text">
+              Defending host systems requires running suspected threats in sandboxed virtual machines. By limiting
+              network sockets and directory structures, you preserve system integrity.
+            </p>
+            <ul class="alt-section__list">
+              <li>
+                <span class="list-bullet">✓</span>
+                <span>
+                  <strong>Hypervisor isolation</strong> — Restrict CPU/RAM availability.
+                </span>
+              </li>
+              <li>
+                <span class="list-bullet">✓</span>
+                <span>
+                  <strong>Directory chrooting</strong> — Limit file system path scopes.
+                </span>
+              </li>
+              <li>
+                <span class="list-bullet">✓</span>
+                <span>
+                  <strong>Network virtualization</strong> — Block external outbound connections.
+                </span>
+              </li>
+            </ul>
+          </div>
+
+          <div class="alt-section__visual">
+            <!-- Browser Mockup containing lock illustration -->
+            <div class="browser-mockup">
+              <div class="browser-mockup__header">
+                <div class="browser-mockup__dots">
+                  <span class="browser-mockup__dot browser-mockup__dot--red"></span>
+                  <span class="browser-mockup__dot browser-mockup__dot--yellow"></span>
+                  <span class="browser-mockup__dot browser-mockup__dot--green"></span>
+                </div>
+                <div class="browser-mockup__address">cyberops://console/device-hygiene</div>
+              </div>
+              <div class="browser-mockup__body browser-mockup__body--centered">
+                <!-- Glowing Lock SVG inside Browser Body -->
+                <svg viewBox="0 0 100 100" width="140" height="140" xmlns="http://www.w3.org/2000/svg">
+                  <defs>
+                    <linearGradient id="lock-brand-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+                      <stop offset="0%" stop-color="#6D3FE0" />
+                      <stop offset="100%" stop-color="#E0459C" />
+                    </linearGradient>
+                  </defs>
+                  <!-- Background grid circle -->
+                  <circle cx="50" cy="50" r="38" stroke="rgba(109, 63, 224, 0.2)" stroke-width="1"
+                    stroke-dasharray="3 3" fill="none" />
+                  <rect x="30" y="45" width="40" height="30" rx="6" fill="#110822" stroke="url(#lock-brand-grad)"
+                    stroke-width="2.5" />
+                  <path d="M40 45V30c0-5.5 4.5-10 10-10s10 4.5 10 10v15" fill="none" stroke="url(#lock-brand-grad)"
+                    stroke-width="2.5" stroke-linecap="round" />
+                  <circle cx="50" cy="57" r="4.5" fill="var(--accent-primary)" />
+                  <line x1="50" y1="61.5" x2="50" y2="68" stroke="var(--accent-primary)" stroke-width="2.5"
+                    stroke-linecap="round" />
+                </svg>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Section 2.5: Everyday Security Habits (Alternating Layout: Text Left, Visual Right) -->
+      <section class="alt-section" id="hygiene-tips-section">
+        <div class="alt-section__container">
+          <div class="alt-section__content">
+            <span class="alt-section__eyebrow">Personal Defense</span>
+            <h2 class="alt-section__heading">Everyday Security Habits</h2>
+            <p class="alt-section__text">
+              Implementing basic cybersecurity practices is the most effective way to secure your personal data and
+              identity. Focus on building these core protective habits to safeguard your online presence:
+            </p>
+
+            <div class="habits-grid">
+              <div class="habit-item">
+                <div class="habit-item__icon">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="var(--accent-green)" stroke-width="2" class="habit-icon">
+                    <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
+                    <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
+                  </svg>
+                </div>
+                <div class="habit-item__text">
+                  <strong>Password Manager</strong>
+                  <span>Use unique passwords for all accounts</span>
+                </div>
+              </div>
+
+              <div class="habit-item">
+                <div class="habit-item__icon">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="var(--accent-blue)" stroke-width="2" class="habit-icon">
+                    <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+                  </svg>
+                </div>
+                <div class="habit-item__text">
+                  <strong>Enable MFA</strong>
+                  <span>Multi-factor authentication everywhere</span>
+                </div>
+              </div>
+
+              <div class="habit-item">
+                <div class="habit-item__icon">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="var(--accent-primary)" stroke-width="2"
+                    class="habit-icon">
+                    <circle cx="12" cy="12" r="10"></circle>
+                    <line x1="12" y1="16" x2="12" y2="12"></line>
+                    <line x1="12" y1="8" x2="12.01" y2="8"></line>
+                  </svg>
+                </div>
+                <div class="habit-item__text">
+                  <strong>Verify HTTPS</strong>
+                  <span>Check padlock before entering credentials</span>
+                </div>
+              </div>
+
+              <div class="habit-item">
+                <div class="habit-item__icon">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="var(--accent-red)" stroke-width="2" class="habit-icon">
+                    <path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z">
+                    </path>
+                    <line x1="12" y1="9" x2="12" y2="13"></line>
+                    <line x1="12" y1="17" x2="12.01" y2="17"></line>
+                  </svg>
+                </div>
+                <div class="habit-item__text">
+                  <strong>Spot Phishing</strong>
+                  <span>Inspect domains and urgency signs</span>
+                </div>
+              </div>
+
+              <div class="habit-item">
+                <div class="habit-item__icon">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="var(--accent-amber)" stroke-width="2" class="habit-icon">
+                    <path d="M21.5 2v6h-6M21.34 15.57a10 10 0 1 1-.57-8.38l5.67-5.67"></path>
+                  </svg>
+                </div>
+                <div class="habit-item__text">
+                  <strong>Update Software</strong>
+                  <span>Keep browsers and plugins updated</span>
+                </div>
+              </div>
+
+              <div class="habit-item">
+                <div class="habit-item__icon">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="var(--accent-primary)" stroke-width="2"
+                    class="habit-icon">
+                    <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M17 8l-5-5-5 5M12 3v12"></path>
+                  </svg>
+                </div>
+                <div class="habit-item__text">
+                  <strong>Back Up Data</strong>
+                  <span>Save critical files regularly offline</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="alt-section__visual">
+            <!-- Browser Mockup containing dynamic checklist -->
+            <div class="browser-mockup">
+              <div class="browser-mockup__header">
+                <div class="browser-mockup__dots">
+                  <span class="browser-mockup__dot browser-mockup__dot--red"></span>
+                  <span class="browser-mockup__dot browser-mockup__dot--yellow"></span>
+                  <span class="browser-mockup__dot browser-mockup__dot--green"></span>
+                </div>
+                <div class="browser-mockup__address">cyberops://console/hygiene-checklist</div>
+              </div>
+              <div class="browser-mockup__body browser-mockup__body--centered">
+                <div class="scorecard-container">
+                  <div class="scorecard-header">
+                    <span class="scorecard-title">Device Security Score</span>
+                    <span class="scorecard-percentage">100%</span>
+                  </div>
+                  <div class="score-meter">
+                    <div class="score-meter__fill"></div>
+                  </div>
+                  <ul class="scorecard-list">
+                    <li class="scorecard-item">
+                      <span class="checkbox-indicator">✓</span>
+                      <span>MFA Status: Active</span>
+                    </li>
+                    <li class="scorecard-item">
+                      <span class="checkbox-indicator">✓</span>
+                      <span>Passphrase Entropy: Optimal</span>
+                    </li>
+                    <li class="scorecard-item">
+                      <span class="checkbox-indicator">✓</span>
+                      <span>Update Status: Up-To-Date</span>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Section 3: Live Threat Activity Feed (Centered Treatment) -->
+      <section class="alt-section alt-section--centered" id="logs-section">
+        <div class="alt-section__container">
+          <div class="alt-section__content">
+            <span class="alt-section__eyebrow">Threat Monitoring</span>
+            <h2 class="alt-section__heading">Real-Time Threat Activity</h2>
+            <p class="alt-section__text">
+              The SIEM logging engine aggregates active network indicators to identify scans and potential anomalies.
+              Study the active feed to understand how threat logs are parsed in a modern Security Operations Center
+              (SOC).
+            </p>
+            <div class="hero-actions">
+              <a href="games.html" class="btn btn--primary btn--sm">Try Simulations</a>
+            </div>
+          </div>
+
+          <div class="alt-section__visual">
+            <!-- Browser Mockup containing threat logs -->
+            <div class="browser-mockup">
+              <div class="browser-mockup__header">
+                <div class="browser-mockup__dots">
+                  <span class="browser-mockup__dot browser-mockup__dot--red"></span>
+                  <span class="browser-mockup__dot browser-mockup__dot--yellow"></span>
+                  <span class="browser-mockup__dot browser-mockup__dot--green"></span>
+                </div>
+                <div class="browser-mockup__address">cyberops://console/threat-feed</div>
+              </div>
+              <div class="browser-mockup__body p-0">
+                <section class="log-feed threat-log-feed" id="threat-feed-container"
+                  aria-label="System Activity Monitor">
+                  <!-- Populated by navigation.js -->
+                </section>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- ── Modern Premium Footer ───────────────────────────────── -->
+    <footer class="site-footer">
+      <div class="site-footer__container">
+        <div class="site-footer__brand">
+          <a href="index.html" class="site-footer__logo">
+            <svg class="site-footer__logo-img" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
+              <defs>
+                <linearGradient id="footer-logo-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+                  <stop offset="0%" stop-color="#6D3FE0" />
+                  <stop offset="100%" stop-color="#E0459C" />
+                </linearGradient>
+              </defs>
+              <rect x="2" y="2" width="28" height="28" rx="8" fill="#110822" stroke="url(#footer-logo-grad)"
+                stroke-width="2" />
+              <circle cx="16" cy="16" r="6" fill="url(#footer-logo-grad)" />
+            </svg>
+            <span class="site-footer__logo-text">CyberOps</span>
+          </a>
+          <p class="site-footer__tagline">Security awareness operations center. Protecting identities and building
+            proactive defense systems.</p>
+        </div>
+        <div class="site-footer__links-col">
+          <span class="site-footer__links-title">Core Curriculum</span>
+          <ul class="site-footer__links">
+            <li><a href="modules.html" class="site-footer__link">Learning Modules</a></li>
+            <li><a href="labs.html" class="site-footer__link">Cyber Labs</a></li>
+            <li><a href="games.html" class="site-footer__link">Interactive Simulations</a></li>
+          </ul>
+        </div>
+        <div class="site-footer__links-col">
+          <span class="site-footer__links-title">Resources</span>
+          <ul class="site-footer__links">
+            <li><a href="certifications.html" class="site-footer__link">Certification Pathways</a></li>
+            <li><a href="https://owasp.org" target="_blank" rel="noopener" class="site-footer__link">OWASP
+                Foundation</a></li>
+            <li><a href="https://cisa.gov" target="_blank" rel="noopener" class="site-footer__link">CISA Security
+                Tips</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="site-footer__bottom">
+        <span class="site-footer__copyright">&copy; 2026 CyberOps. All rights reserved. SOC-Dashboard Console.</span>
+      </div>
+    </footer>
+  </div>
+
+  <script src="js/utils.js"></script>
+  <script src="js/navigation.js"></script>
+  <script src="js/chatbot.js"></script>
+  <script src="js/progress.js"></script>
+</body>
+
+</html>

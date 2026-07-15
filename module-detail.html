@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="Content-Security-Policy"
+    content="default-src 'self'; script-src 'self'; style-src 'self' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data:; object-src 'none';">
+  <meta name="description"
+    content="Detailed cybersecurity learning module contents, interactive practice zones, and quizzes.">
+  <title>CyberOps — Module Details</title>
+  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="css/variables.css">
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/components.css">
+  <link rel="stylesheet" href="css/navigation.css">
+  <link rel="stylesheet" href="css/modules.css">
+  <!-- Include games stylesheet in case we embed full games on this detail template page -->
+  <link rel="stylesheet" href="css/games.css">
+  <link rel="stylesheet" href="css/chatbot.css">
+</head>
+
+<body>
+  <!-- Shared SVG Gradients Defs -->
+  <svg class="hidden-svg-defs" aria-hidden="true">
+    <defs>
+      <linearGradient id="hero-brand-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+        <stop offset="0%" stop-color="#6D3FE0" />
+        <stop offset="100%" stop-color="#E0459C" />
+      </linearGradient>
+      <linearGradient id="hero-blue-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+        <stop offset="0%" stop-color="#2F6FED" />
+        <stop offset="100%" stop-color="#0c0418" />
+      </linearGradient>
+    </defs>
+  </svg>
+
+  <div class="app-layout">
+
+    <!-- ── Sticky Top Navigation Bar ────────────────────────── -->
+    <header class="top-nav">
+      <div class="nav-container">
+        <a href="index.html" class="nav-brand">
+          <div class="nav-logo">
+            <svg viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
+              <rect x="2" y="2" width="28" height="28" rx="8" fill="#110822" stroke="url(#hero-brand-grad)" stroke-width="2.5" />
+              <circle cx="16" cy="16" r="6" fill="url(#hero-brand-grad)" />
+            </svg>
+          </div>
+          <div class="nav-brand-text">
+            <span class="nav-title">CyberOps</span>
+            <span class="nav-subtitle">Security Awareness</span>
+          </div>
+        </a>
+
+        <div class="nav-links-wrapper">
+          <ul class="nav-links">
+            <li><a href="index.html" class="nav-link">Dashboard</a></li>
+            <li><a href="modules.html" class="nav-link nav-link--active">Learning Modules</a></li>
+            <li><a href="labs.html" class="nav-link">Cyber Labs</a></li>
+            <li><a href="games.html" class="nav-link">Simulations</a></li>
+            <li><a href="certifications.html" class="nav-link">Certifications</a></li>
+          </ul>
+
+          <button type="button" class="nav-hamburger" aria-label="Toggle navigation" aria-expanded="false">
+            <span class="nav-hamburger__line"></span>
+            <span class="nav-hamburger__line"></span>
+            <span class="nav-hamburger__line"></span>
+          </button>
+        </div>
+      </div>
+
+      <!-- Mobile dropdown panel -->
+      <div class="nav-dropdown" id="nav-dropdown">
+        <a href="index.html" class="nav-dropdown__link">Dashboard</a>
+        <a href="modules.html" class="nav-dropdown__link nav-dropdown__link--active">Learning Modules</a>
+        <a href="labs.html" class="nav-dropdown__link">Cyber Labs</a>
+        <a href="games.html" class="nav-dropdown__link">Simulations</a>
+        <a href="certifications.html" class="nav-dropdown__link">Certifications</a>
+      </div>
+    </header>
+
+    <!-- ── Main Content ───────────────────────────────────── -->
+    <main class="main-content">
+      <div class="detail-container">
+        <!-- Back navigation link -->
+        <a href="modules.html" class="back-link-nav">
+          <span>&larr;</span> Back to Curriculum Grid
+        </a>
+
+        <!-- Module Header Panel -->
+        <section class="module-detail-header" id="module-header-panel">
+          <div class="module-detail-header__main">
+            <div class="module-detail-header__icon" id="detail-header-icon">
+              <!-- Icon SVG injected here -->
+            </div>
+            <div>
+              <div class="module-detail-header__meta">
+                <span class="badge badge--gradient" id="detail-header-num">MODULE 01</span>
+                <span class="module-detail-header__category" id="detail-header-category">Security Fundamentals &bull;
+                  Assurance &amp; Risk</span>
+              </div>
+              <h1 class="module-detail-header__title" id="detail-header-title">IT Assurance Foundations</h1>
+            </div>
+          </div>
+          <p class="module-detail-header__summary" id="detail-header-summary">Learn the fundamental components of IT Assurance, risk management models, and security control domains.</p>
+        </section>
+
+        <!-- In-page Table of Contents -->
+        <nav class="toc-nav" aria-label="Table of contents">
+          <ul class="toc-links">
+            <li><a href="#detail-overview-section" class="toc-link">Overview</a></li>
+            <li><a href="#detail-bigger-picture-section" class="toc-link">Bigger Picture</a></li>
+            <li><a href="#detail-secondary-breakdown-section" class="toc-link">Frameworks</a></li>
+            <li><a href="#detail-interactive-section" class="toc-link">Sandbox</a></li>
+          </ul>
+        </nav>
+
+        <!-- Main Body: Multi-column or generous vertical spacing layout -->
+        <div class="module-detail-body">
+          <div class="module-detail-main-col">
+            <!-- Section 1: Detailed Explanation -->
+            <section class="detail-section" id="detail-overview-section">
+              <h3 class="detail-section__heading">Detailed Concept Overview</h3>
+              <div class="detail-text-content" id="detail-explanation">
+                <!-- Detailed explanation injected here -->
+              </div>
+            </section>
+
+            <!-- Section 2: How this fits into the bigger picture -->
+            <section class="detail-section bg-surface-panel" id="detail-bigger-picture-section">
+              <h3 class="detail-section__heading">The Bigger Picture</h3>
+              <div class="detail-text-content" id="detail-bigger-picture">
+                <!-- Bigger picture details injected here -->
+              </div>
+            </section>
+
+            <!-- Section 3: Secondary Breakdown -->
+            <section class="detail-section" id="detail-secondary-breakdown-section">
+              <h3 class="detail-section__heading">Frameworks &amp; Deep-Dive</h3>
+              <div class="detail-text-content" id="detail-secondary-breakdown">
+                <!-- Secondary breakdown injected here -->
+              </div>
+            </section>
+
+            <!-- Section 4: Upgraded Interactive Practice Zone -->
+            <section class="detail-section" id="detail-interactive-section">
+              <div class="detail-section__header">
+                <h3 class="detail-section__heading" id="detail-interactive-title">Interactive Practice Sandbox</h3>
+                <span class="badge badge--primary">Interactive Sandbox</span>
+              </div>
+              <div class="interactive-sandbox-wrapper" id="detail-interactive-container">
+                <!-- Interactive HTML structure injected here -->
+              </div>
+            </section>
+          </div>
+
+          <div class="module-detail-side-col">
+            <!-- Section 5: Real-World Case Study -->
+            <section class="detail-section side-callout" id="detail-case-study-section">
+              <div class="detail-text-content" id="detail-case-study">
+                <!-- Case study details injected here -->
+              </div>
+            </section>
+
+            <!-- Section 6: Upgraded Multi-Question Quiz -->
+            <section class="detail-section quiz-card-section" id="detail-quiz-section">
+              <h3 class="detail-section__heading">Knowledge Assessment</h3>
+              <div class="quiz-card" id="detail-quiz-card">
+                <div class="quiz-progress-bar">
+                  <div class="quiz-progress-fill" id="quiz-progress"></div>
+                </div>
+                <div class="quiz-question-header mt-3">
+                  <span class="quiz-question-number" id="quiz-q-num">Question 1 of 3</span>
+                </div>
+                <p class="quiz-question-text" id="quiz-q-text">Which of the following is a technical control rather than
+                  an administrative or physical one?</p>
+                <div class="quiz-options-group" id="quiz-options-container">
+                  <!-- Options buttons injected here -->
+                </div>
+                <div class="feedback-message hidden-element" id="quiz-feedback">
+                  <!-- Feedback message injected here -->
+                </div>
+                <div class="quiz-nav-row mt-4">
+                  <button type="button" class="btn btn--secondary btn--xs" id="quiz-prev-btn" disabled>Prev</button>
+                  <button type="button" class="btn btn--primary btn--xs" id="quiz-next-btn">Next Question</button>
+                </div>
+              </div>
+            </section>
+          </div>
+        </div>
+
+        <!-- Sequential prev/next navigation footer bar -->
+        <nav class="sequential-navigation" aria-label="Module navigation">
+          <a href="#" class="btn btn--secondary sequential-nav-btn" id="seq-prev-link">
+            <span class="nav-arrow">&larr;</span>
+            <span class="nav-btn-text">Previous Module: <strong id="seq-prev-title">N/A</strong></span>
+          </a>
+          <a href="#" class="btn btn--secondary sequential-nav-btn" id="seq-next-link">
+            <span class="nav-btn-text">Next Module: <strong id="seq-next-title">N/A</strong></span>
+            <span class="nav-arrow">&rarr;</span>
+          </a>
+        </nav>
+      </div>
+    </main>
+
+    <!-- ── Modern Premium Footer ───────────────────────────────── -->
+    <footer class="site-footer">
+      <div class="site-footer__container">
+        <div class="site-footer__brand">
+          <a href="index.html" class="site-footer__logo">
+            <svg class="site-footer__logo-img" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
+              <defs>
+                <linearGradient id="footer-logo-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+                  <stop offset="0%" stop-color="#6D3FE0" />
+                  <stop offset="100%" stop-color="#E0459C" />
+                </linearGradient>
+              </defs>
+              <rect x="2" y="2" width="28" height="28" rx="8" fill="#110822" stroke="url(#footer-logo-grad)"
+                stroke-width="2" />
+              <circle cx="16" cy="16" r="6" fill="url(#footer-logo-grad)" />
+            </svg>
+            <span class="site-footer__logo-text">CyberOps</span>
+          </a>
+          <p class="site-footer__tagline">Security awareness operations center. Protecting identities and building
+            proactive defense systems.</p>
+        </div>
+        <div class="site-footer__links-col">
+          <span class="site-footer__links-title">Core Curriculum</span>
+          <ul class="site-footer__links">
+            <li><a href="modules.html" class="site-footer__link">Learning Modules</a></li>
+            <li><a href="labs.html" class="site-footer__link">Cyber Labs</a></li>
+            <li><a href="games.html" class="site-footer__link">Interactive Simulations</a></li>
+          </ul>
+        </div>
+        <div class="site-footer__links-col">
+          <span class="site-footer__links-title">Resources</span>
+          <ul class="site-footer__links">
+            <li><a href="certifications.html" class="site-footer__link">Certification Pathways</a></li>
+            <li><a href="https://owasp.org" target="_blank" rel="noopener" class="site-footer__link">OWASP
+                Foundation</a></li>
+            <li><a href="https://cisa.gov" target="_blank" rel="noopener" class="site-footer__link">CISA Security
+                Tips</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="site-footer__bottom">
+        <span class="site-footer__copyright">&copy; 2026 CyberOps. All rights reserved. SOC-Dashboard Console.</span>
+      </div>
+    </footer>
+  </div>
+
+  <script src="js/utils.js"></script>
+  <script src="js/navigation.js"></script>
+  <script src="js/chatbot.js"></script>
+  <script src="js/module-data.js"></script>
+  <script src="js/progress.js"></script>
+  <!-- Load template rendering and custom interactive hooks -->
+  <script src="js/module-detail.js"></script>
+</body>
+
+</html>
