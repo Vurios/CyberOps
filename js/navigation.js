@@ -119,8 +119,8 @@
 
   /* ── Dynamic Nav Counts (data accuracy sync) ────────────────── */
   const SITE_COUNTS = {
-    modules: 9,
-    simulations: 5,
+    modules: 18,
+    simulations: 7,
     labs: 9,
     certifications: 9
   };

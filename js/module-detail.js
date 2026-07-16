@@ -232,7 +232,119 @@
       case "09":
         initSqliSandboxModule9();
         break;
+      // New Everyday Awareness Modules
+      case "mobile-security":
+        initGenericClassifier("#classifier-mobile", ["Suspicious", "Reasonable", "Suspicious"]);
+        break;
+      case "home-wifi-security":
+        initGenericStrideAnalyzer("#router-risk-analyzer", {
+          "Critical Risk": "Change default admin credentials immediately. Disable remote WAN administration in settings.",
+          "Moderate Risk": "WPA2-AES remains viable, but transition to WPA3-SAE when hardware supports it.",
+          "Low Risk": "SSID hiding provides security by obscurity. Real protection requires strong encryption."
+        });
+        break;
+      case "social-media-privacy":
+        initGenericClassifier("#classifier-social", ["High Risk", "Low Risk", "High Risk"]);
+        break;
+      case "public-wifi-safety":
+        initGenericStrideAnalyzer("#wifi-risk-analyzer", {
+          "High Risk": "Verify the official network SSID with staff, or route traffic through a trusted VPN tunnel.",
+          "Low Risk": "HTTPS prevents payload reading and credential capture, making standard browsing relatively safe."
+        });
+        break;
+      case "backup-strategy":
+        initGenericClassifier("#classifier-backup", ["Fails 3-2-1", "Passes 3-2-1", "Fails 3-2-1"]);
+        break;
+      case "deepfake-ai-scams":
+        initGenericClassifier("#classifier-deepfake", ["Scam Red Flags", "Likely Genuine", "Scam Red Flags"]);
+        break;
+      case "qr-phishing":
+        initGenericClassifier("#classifier-qr", ["Safe to Open", "Suspicious", "Suspicious"]);
+        break;
+      case "sim-swapping":
+        initGenericStrideAnalyzer("#simswap-analyzer", {
+          "Step 1 — Reconnaissance": "Limit personal info on public social profiles to reduce attacker intelligence gathering.",
+          "Step 2 — SIM Hijack (Critical)": "Contact your carrier to request a SIM lock/port freeze PIN requirement.",
+          "Step 3 — Account Takeover": "Transition accounts to TOTP authenticator apps or security keys instead of SMS 2FA."
+        });
+        break;
+      case "personal-incident-response":
+        initGenericClassifier("#classifier-ir", [
+          "Use Google's account recovery to regain access and change the password",
+          "Call your carrier immediately from another device to report a suspected SIM swap and freeze your number",
+          "Disconnect the device from Wi-Fi and ethernet immediately to stop spread"
+        ]);
+        break;
     }
+  }
+
+  function initGenericClassifier(selector, correctAnswers) {
+    const parent = $(selector);
+    if (!parent) return;
+
+    const stages = $$('.classifier-stage', parent);
+    const feedback = $('.classifier-feedback', parent);
+    let score = 0;
+
+    stages.forEach((stage, idx) => {
+      const opts = $$('.classifier-opt', stage);
+      opts.forEach(btn => {
+        btn.addEventListener('click', () => {
+          const ans = btn.getAttribute('data-ans');
+          const isCorrect = (ans === correctAnswers[idx]);
+
+          if (isCorrect) score++;
+
+          // Display intermediate feedback
+          feedback.className = `classifier-feedback feedback-message ${isCorrect ? 'feedback-message--success' : 'feedback-message--error'}`;
+          feedback.innerHTML = isCorrect ? `✓ Correct — that fits the category.` : `✗ Not quite — review the definitions and try again.`;
+          feedback.classList.remove('hidden-element');
+
+          // Disable buttons in this stage
+          opts.forEach(b => b.disabled = true);
+
+          // Advance to next stage after a short delay
+          setTimeout(() => {
+            stage.classList.add('hidden-element');
+            if (idx + 1 < stages.length) {
+              stages[idx + 1].classList.remove('hidden-element');
+              feedback.classList.add('hidden-element');
+            } else {
+              // Final stage reached
+              feedback.className = 'classifier-feedback feedback-message feedback-message--success';
+              feedback.innerHTML = `<strong>✓ Classification Complete!</strong> You correctly classified ${score} out of ${stages.length} scenarios. Review the guidelines above for deeper context.`;
+            }
+          }, 1500);
+        });
+      });
+    });
+  }
+
+  function initGenericStrideAnalyzer(selector, mitigations) {
+    const parent = $(selector);
+    if (!parent) return;
+
+    const btns = $$('.stride-scenario-btn', parent);
+    const details = $('.stride-details-box', parent);
+    const name = $('#stride-threat-name', parent);
+    const desc = $('#stride-threat-desc', parent);
+    const mit = $('#stride-threat-mit', parent);
+
+    btns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        btns.forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+
+        const threat = btn.getAttribute('data-threat');
+        const scenarioDesc = btn.getAttribute('data-desc');
+
+        name.textContent = threat;
+        desc.textContent = scenarioDesc;
+        mit.textContent = mitigations[threat] || "";
+
+        details.classList.remove('hidden-element');
+      });
+    });
   }
 
   /* ── MODULE 01: CONTROLS CLASSIFIER ── */

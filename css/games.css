@@ -977,4 +977,164 @@
   margin: 0;
 }
 
+/* ── App Permission Auditor Styles ──────────────────────────── */
+.permissions-list-container {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+  margin-bottom: var(--space-5);
+}
+
+.perm-row {
+  background: var(--bg-surface-alt);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius);
+  padding: var(--space-4);
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-3);
+}
+
+.perm-row__info {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+  flex: 1;
+  min-width: 240px;
+}
+
+.perm-row__name {
+  font-weight: 600;
+  color: var(--text-primary);
+  font-size: var(--text-sm);
+}
+
+.perm-row__desc {
+  color: var(--text-secondary);
+  font-size: var(--text-xs);
+}
+
+.perm-toggle-btn {
+  flex-shrink: 0;
+  transition: var(--transition-fast) !important;
+}
+
+.perm-toggle-btn.active {
+  background: rgba(239, 68, 68, 0.08) !important;
+  border-color: rgba(239, 68, 68, 0.3) !important;
+  color: #ef4444 !important;
+  box-shadow: 0 0 8px rgba(239, 68, 68, 0.15) !important;
+}
+
+.perm-feedback {
+  width: 100%;
+  margin-top: var(--space-2);
+  padding-top: var(--space-2);
+  border-top: 1px dashed var(--border-color);
+  font-size: var(--text-xs);
+  line-height: 1.4;
+}
+
+/* ── Spot the Deepfake Styles ───────────────────────────────── */
+.df-container-wrapper {
+  max-width: 720px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+.df-card {
+  background: var(--bg-surface);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-lg);
+  padding: var(--space-6);
+  box-shadow: var(--shadow-md);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+}
+
+.df-card__header {
+  border-bottom: 1px solid var(--border-color);
+  padding-bottom: var(--space-4);
+}
+
+.df-card__title {
+  margin-top: var(--space-2);
+  font-size: var(--text-lg);
+  font-family: var(--font-heading);
+}
+
+.df-quote-box {
+  background: var(--bg-surface-alt);
+  border-left: 3px solid var(--accent-primary);
+  border-radius: 0 var(--radius) var(--radius-lg) 0;
+  padding: var(--space-5);
+  font-style: italic;
+  font-size: var(--text-base);
+  line-height: 1.6;
+  color: var(--text-primary);
+}
+
+.df-actions {
+  display: flex;
+  gap: var(--space-3);
+  align-items: center;
+  width: 100%;
+  flex-wrap: wrap;
+}
+
+.btn-df-scam {
+  background: rgba(239, 68, 68, 0.05) !important;
+  border-color: rgba(239, 68, 68, 0.25) !important;
+  color: #ef4444 !important;
+}
+
+.btn-df-scam:hover:not(:disabled) {
+  background: rgba(239, 68, 68, 0.12) !important;
+  border-color: rgba(239, 68, 68, 0.45) !important;
+}
+
+.btn-df-legit {
+  background: rgba(16, 185, 129, 0.05) !important;
+  border-color: rgba(16, 185, 129, 0.25) !important;
+  color: #10b981 !important;
+}
+
+.btn-df-legit:hover:not(:disabled) {
+  background: rgba(16, 185, 129, 0.12) !important;
+  border-color: rgba(16, 185, 129, 0.45) !important;
+}
+
+.df-explanation-box {
+  background: var(--bg-surface-alt);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius);
+  padding: var(--space-4) var(--space-5);
+  font-size: var(--text-sm);
+}
+
+.df-explanation-box h4 {
+  font-family: var(--font-heading);
+  font-size: var(--text-sm);
+  color: var(--text-primary);
+  font-weight: 700;
+}
+
+.df-indicators-list {
+  list-style: none;
+  padding: 0;
+  margin: var(--space-2) 0 0 0;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+}
+
+.df-indicators-list li {
+  font-size: var(--text-xs);
+  color: var(--accent-amber);
+  font-weight: 500;
+}
+
 

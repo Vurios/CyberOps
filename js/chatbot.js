@@ -84,6 +84,7 @@
     inputEl.addEventListener('input', function () {
       this.style.height = 'auto';
       this.style.height = Math.min(this.scrollHeight, 80) + 'px';
+      scrollToBottom();
     });
   }
 
@@ -269,7 +270,10 @@
   // ── Scroll helper ─────────────────────────────────────────
   function scrollToBottom() {
     requestAnimationFrame(function () {
-      messagesEl.scrollTop = messagesEl.scrollHeight;
+      const bodyEl = document.getElementById('chatbot-body');
+      if (bodyEl) {
+        bodyEl.scrollTop = bodyEl.scrollHeight;
+      }
     });
   }
 

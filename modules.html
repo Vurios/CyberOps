@@ -91,7 +91,7 @@
         <div class="hero-content">
           <span class="badge badge--gradient">Curriculum</span>
           <h1 class="hero-title">Core Learning Modules</h1>
-          <p class="hero-desc">// curriculum_version: 3.0 — modules_loaded: 09 — status: active</p>
+          <p class="hero-desc">// curriculum_version: 3.0 — modules_loaded: 18 — status: active</p>
           <p class="hero-intro-text">Structured cybersecurity curriculum covering foundational information security,
             access control, cryptography, vulnerability mitigation, and interactive defensive sandboxes. Select a module
             to begin your learning pathway.</p>
@@ -144,13 +144,206 @@
         </div>
       </section>
 
-      <!-- Search Input Container -->
+      <!-- Search Input & Track Filter Container -->
       <div class="search-filter-container">
+        <div class="track-filter">
+          <button type="button" class="track-tab active" data-track="everyday">Everyday Awareness</button>
+          <button type="button" class="track-tab" data-track="technical">Technical / IT Track</button>
+        </div>
         <input type="text" class="search-input" placeholder="Search modules by title, summary, or badge..."
           aria-label="Search modules">
       </div>
 
-      <!-- ── Group 1: Security Fundamentals ────────────────────── -->
+      <!-- ── Group 1: Everyday Awareness ──────────────────────── -->
+      <section class="module-group">
+        <div class="module-group__header">
+          <h3 class="module-group__title">Everyday Awareness</h3>
+          <span class="module-group__badge">Personal Safety</span>
+        </div>
+        <div class="modules-grid">
+
+          <!-- Module 01: Mobile Device Security -->
+          <div class="module-card" id="module-01">
+            <div class="module-card__header">
+              <div class="iso-icon-tile">
+                <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <rect x="7" y="2" width="10" height="20" rx="2" stroke="url(#hero-brand-grad)" stroke-width="2"/>
+                  <circle cx="12" cy="18" r="1" fill="currentColor"/>
+                  <path d="M10 6h4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+                </svg>
+              </div>
+              <div>
+                <span class="module-card__label">MODULE 01</span>
+                <h2 class="module-card__title">Mobile Device Security</h2>
+              </div>
+            </div>
+            <p class="module-card__summary">Control which apps can access your camera, contacts, and location — and know what to do the moment your phone goes missing.</p>
+            <a href="module-detail.html?id=mobile-security" class="module-card__action">View Module details <span>→</span></a>
+          </div>
+
+          <!-- Module 02: Home Wi-Fi & Router Security -->
+          <div class="module-card" id="module-02">
+            <div class="module-card__header">
+              <div class="iso-icon-tile iso-icon-tile--secondary">
+                <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M5 12.55a11 11 0 0 1 14.08 0M1.42 9a16 16 0 0 1 21.16 0M8.53 16.11a6 6 0 0 1 6.95 0" stroke="url(#hero-brand-grad)" stroke-width="2" stroke-linecap="round"/>
+                  <circle cx="12" cy="20" r="1.5" fill="currentColor"/>
+                </svg>
+              </div>
+              <div>
+                <span class="module-card__label module-card__label--secondary">MODULE 02</span>
+                <h2 class="module-card__title">Home Wi-Fi &amp; Router Security</h2>
+              </div>
+            </div>
+            <p class="module-card__summary">Lock down your home router so it doesn't become the weakest link between your devices and the internet.</p>
+            <a href="module-detail.html?id=home-wifi-security" class="module-card__action">View Module details <span>→</span></a>
+          </div>
+
+          <!-- Module 03: Social Media Privacy & Oversharing -->
+          <div class="module-card" id="module-03">
+            <div class="module-card__header">
+              <div class="iso-icon-tile iso-icon-tile--blue">
+                <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <circle cx="18" cy="5" r="3" stroke="url(#hero-brand-grad)" stroke-width="2"/>
+                  <circle cx="6" cy="12" r="3" stroke="url(#hero-brand-grad)" stroke-width="2"/>
+                  <circle cx="18" cy="19" r="3" stroke="url(#hero-brand-grad)" stroke-width="2"/>
+                  <path d="M8.59 13.51l6.83 3.98M15.41 6.51l-6.82 3.98" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+                </svg>
+              </div>
+              <div>
+                <span class="module-card__label module-card__label--blue">MODULE 03</span>
+                <h2 class="module-card__title">Social Media Privacy &amp; Oversharing</h2>
+              </div>
+            </div>
+            <p class="module-card__summary">Understand what your social posts reveal and how to tighten privacy settings before that information is used against you.</p>
+            <a href="module-detail.html?id=social-media-privacy" class="module-card__action">View Module details <span>→</span></a>
+          </div>
+
+          <!-- Module 04: Public Wi-Fi Safety -->
+          <div class="module-card" id="module-04">
+            <div class="module-card__header">
+              <div class="iso-icon-tile">
+                <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M5 12.55a11 11 0 0 1 14.08 0" stroke="url(#hero-brand-grad)" stroke-width="2" stroke-linecap="round"/>
+                  <path d="M1.42 9a16 16 0 0 1 21.16 0" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+                  <path d="M8.53 16.11a6 6 0 0 1 6.95 0" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+                  <circle cx="12" cy="20" r="1.5" fill="currentColor"/>
+                  <line x1="4" y1="4" x2="20" y2="20" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+                </svg>
+              </div>
+              <div>
+                <span class="module-card__label">MODULE 04</span>
+                <h2 class="module-card__title">Public Wi-Fi Safety</h2>
+              </div>
+            </div>
+            <p class="module-card__summary">Using café or airport Wi-Fi exposes you to real risks — learn what's actually dangerous and what a VPN actually protects you from.</p>
+            <a href="module-detail.html?id=public-wifi-safety" class="module-card__action">View Module details <span>→</span></a>
+          </div>
+
+          <!-- Module 05: Personal Backup Strategy -->
+          <div class="module-card" id="module-05">
+            <div class="module-card__header">
+              <div class="iso-icon-tile iso-icon-tile--secondary">
+                <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" stroke="url(#hero-brand-grad)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                  <polyline points="7 10 12 15 17 10" stroke="url(#hero-brand-grad)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                  <line x1="12" y1="15" x2="12" y2="3" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                </svg>
+              </div>
+              <div>
+                <span class="module-card__label module-card__label--secondary">MODULE 05</span>
+                <h2 class="module-card__title">Personal Backup Strategy</h2>
+              </div>
+            </div>
+            <p class="module-card__summary">One device failure or ransomware attack can wipe everything. A simple 3-2-1 backup plan protects your photos and memories permanently.</p>
+            <a href="module-detail.html?id=backup-strategy" class="module-card__action">View Module details <span>→</span></a>
+          </div>
+
+          <!-- Module 06: Deepfakes & AI-Generated Scams -->
+          <div class="module-card" id="module-06">
+            <div class="module-card__header">
+              <div class="iso-icon-tile iso-icon-tile--blue">
+                <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <circle cx="12" cy="8" r="4" stroke="url(#hero-brand-grad)" stroke-width="2"/>
+                  <path d="M4 20c0-4 3.6-7 8-7s8 3 8 7" stroke="url(#hero-brand-grad)" stroke-width="2" stroke-linecap="round"/>
+                  <path d="M15 5l4-3M9 5L5 2" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+                </svg>
+              </div>
+              <div>
+                <span class="module-card__label module-card__label--blue">MODULE 06</span>
+                <h2 class="module-card__title">Deepfakes &amp; AI-Generated Scams</h2>
+              </div>
+            </div>
+            <p class="module-card__summary">AI can clone a voice in seconds and generate convincing video of anyone. Learn to spot these fakes before they cost you money.</p>
+            <a href="module-detail.html?id=deepfake-ai-scams" class="module-card__action">View Module details <span>→</span></a>
+          </div>
+
+          <!-- Module 07: QR Code Phishing (Quishing) -->
+          <div class="module-card" id="module-07">
+            <div class="module-card__header">
+              <div class="iso-icon-tile">
+                <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <rect x="3" y="3" width="7" height="7" rx="1" stroke="url(#hero-brand-grad)" stroke-width="2"/>
+                  <rect x="14" y="3" width="7" height="7" rx="1" stroke="url(#hero-brand-grad)" stroke-width="2"/>
+                  <rect x="3" y="14" width="7" height="7" rx="1" stroke="currentColor" stroke-width="2"/>
+                  <rect x="5" y="5" width="3" height="3" fill="currentColor"/>
+                  <rect x="16" y="5" width="3" height="3" fill="currentColor"/>
+                  <rect x="5" y="16" width="3" height="3" fill="currentColor"/>
+                  <path d="M14 14h3v3M17 17h3v3M14 20h3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </div>
+              <div>
+                <span class="module-card__label">MODULE 07</span>
+                <h2 class="module-card__title">QR Code Phishing (Quishing)</h2>
+              </div>
+            </div>
+            <p class="module-card__summary">QR codes are just URLs in disguise — attackers are printing fake ones over legitimate ones in public places to steal credentials.</p>
+            <a href="module-detail.html?id=qr-phishing" class="module-card__action">View Module details <span>→</span></a>
+          </div>
+
+          <!-- Module 08: SIM-Swapping & Account Recovery Hijacking -->
+          <div class="module-card" id="module-08">
+            <div class="module-card__header">
+              <div class="iso-icon-tile iso-icon-tile--secondary">
+                <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <rect x="5" y="2" width="14" height="20" rx="2" stroke="url(#hero-brand-grad)" stroke-width="2"/>
+                  <path d="M9 7h6M9 11h4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+                  <path d="M15 17l2-2-2-2" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                  <path d="M17 15H9" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+                </svg>
+              </div>
+              <div>
+                <span class="module-card__label module-card__label--secondary">MODULE 08</span>
+                <h2 class="module-card__title">SIM-Swapping &amp; Account Hijacking</h2>
+              </div>
+            </div>
+            <p class="module-card__summary">Attackers can take over your phone number with a single call to your carrier — then use it to reset every account using SMS verification.</p>
+            <a href="module-detail.html?id=sim-swapping" class="module-card__action">View Module details <span>→</span></a>
+          </div>
+
+          <!-- Module 09: Personal Incident Response -->
+          <div class="module-card" id="module-09">
+            <div class="module-card__header">
+              <div class="iso-icon-tile iso-icon-tile--blue">
+                <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z" stroke="url(#hero-brand-grad)" stroke-width="2" stroke-linejoin="round"/>
+                  <line x1="12" y1="9" x2="12" y2="13" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                  <circle cx="12" cy="17" r="1" fill="currentColor"/>
+                </svg>
+              </div>
+              <div>
+                <span class="module-card__label module-card__label--blue">MODULE 09</span>
+                <h2 class="module-card__title">Personal Incident Response</h2>
+              </div>
+            </div>
+            <p class="module-card__summary">Something's wrong — you've been hacked, your account is locked, or your card is being used. Here's your step-by-step personal response plan.</p>
+            <a href="module-detail.html?id=personal-incident-response" class="module-card__action">View Module details <span>→</span></a>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- ── Group 2: Security Fundamentals ────────────────────── -->
       <section class="module-group">
         <div class="module-group__header">
           <h3 class="module-group__title">Security Fundamentals</h3>
@@ -158,8 +351,8 @@
         </div>
         <div class="modules-grid">
 
-          <!-- Module 1: IT Assurance Foundations -->
-          <div class="module-card" id="module-1">
+          <!-- Module 10: IT Assurance Foundations -->
+          <div class="module-card" id="module-10">
             <div class="module-card__header">
               <div class="iso-icon-tile">
                 <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -170,17 +363,17 @@
                 </svg>
               </div>
               <div>
-                <span class="module-card__label">MODULE 01</span>
+                <span class="module-card__label">MODULE 10</span>
                 <h2 class="module-card__title">IT Assurance Foundations</h2>
               </div>
             </div>
             <p class="module-card__summary">Learn the fundamental components of IT Assurance, risk management models,
               and security control domains.</p>
-            <a href="module-detail.html?id=01" class="module-card__action">View Module details <span>→</span></a>
+            <a href="module-detail.html?id=10" class="module-card__action">View Module details <span>→</span></a>
           </div>
 
-          <!-- Module 2: Threat Modeling & Risk Assessment -->
-          <div class="module-card" id="module-2">
+          <!-- Module 11: Threat Modeling & Risk Assessment -->
+          <div class="module-card" id="module-11">
             <div class="module-card__header">
               <div class="iso-icon-tile iso-icon-tile--secondary">
                 <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -190,17 +383,17 @@
                 </svg>
               </div>
               <div>
-                <span class="module-card__label module-card__label--secondary">MODULE 02</span>
+                <span class="module-card__label module-card__label--secondary">MODULE 11</span>
                 <h2 class="module-card__title">Threat Modeling &amp; Risk</h2>
               </div>
             </div>
             <p class="module-card__summary">Analyze system architectures, identify potential threat vectors, and apply
               STRIDE threat modeling methodologies.</p>
-            <a href="module-detail.html?id=02" class="module-card__action">View Module details <span>→</span></a>
+            <a href="module-detail.html?id=11" class="module-card__action">View Module details <span>→</span></a>
           </div>
 
-          <!-- Module 3: Cryptography & PKI -->
-          <div class="module-card" id="module-3">
+          <!-- Module 12: Cryptography & PKI -->
+          <div class="module-card" id="module-12">
             <div class="module-card__header">
               <div class="iso-icon-tile iso-icon-tile--blue">
                 <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -209,19 +402,19 @@
                 </svg>
               </div>
               <div>
-                <span class="module-card__label module-card__label--blue">MODULE 03</span>
+                <span class="module-card__label module-card__label--blue">MODULE 12</span>
                 <h2 class="module-card__title">Cryptography &amp; PKI</h2>
               </div>
             </div>
             <p class="module-card__summary">Understand encryption algorithms, symmetric vs. asymmetric systems, and PKI
               components.</p>
-            <a href="module-detail.html?id=03" class="module-card__action">View Module details <span>→</span></a>
+            <a href="module-detail.html?id=12" class="module-card__action">View Module details <span>→</span></a>
           </div>
 
         </div>
       </section>
 
-      <!-- ── Group 2: Host & Network Security ──────────────────── -->
+      <!-- ── Group 3: Host & Network Security ──────────────────── -->
       <section class="module-group">
         <div class="module-group__header">
           <h3 class="module-group__title">Host &amp; Network Security</h3>
@@ -229,8 +422,8 @@
         </div>
         <div class="modules-grid">
 
-          <!-- Module 4: Secure Virtualization & Sandboxing -->
-          <div class="module-card" id="module-4">
+          <!-- Module 13: Secure Virtualization & Sandboxing -->
+          <div class="module-card" id="module-13">
             <div class="module-card__header">
               <div class="iso-icon-tile">
                 <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -239,17 +432,17 @@
                 </svg>
               </div>
               <div>
-                <span class="module-card__label">MODULE 04</span>
+                <span class="module-card__label">MODULE 13</span>
                 <h2 class="module-card__title">Virtualization &amp; Sandboxes</h2>
               </div>
             </div>
             <p class="module-card__summary">Study hypervisor architectures, virtual machine configuration, and sandbox
               containment practices.</p>
-            <a href="module-detail.html?id=04" class="module-card__action">View Module details <span>→</span></a>
+            <a href="module-detail.html?id=13" class="module-card__action">View Module details <span>→</span></a>
           </div>
 
-          <!-- Module 5: Linux CLI & Security Diagnostics -->
-          <div class="module-card" id="module-5">
+          <!-- Module 14: Linux CLI & Security Diagnostics -->
+          <div class="module-card" id="module-14">
             <div class="module-card__header">
               <div class="iso-icon-tile iso-icon-tile--secondary">
                 <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -258,17 +451,17 @@
                 </svg>
               </div>
               <div>
-                <span class="module-card__label module-card__label--secondary">MODULE 05</span>
+                <span class="module-card__label module-card__label--secondary">MODULE 14</span>
                 <h2 class="module-card__title">Linux CLI &amp; Diagnostics</h2>
               </div>
             </div>
             <p class="module-card__summary">Master fundamental command-line utilities for security investigations,
               audits, and configuration.</p>
-            <a href="module-detail.html?id=05" class="module-card__action">View Module details <span>→</span></a>
+            <a href="module-detail.html?id=14" class="module-card__action">View Module details <span>→</span></a>
           </div>
 
-          <!-- Module 6: Network Mapping & Port Auditing -->
-          <div class="module-card" id="module-6">
+          <!-- Module 15: Network Mapping & Port Auditing -->
+          <div class="module-card" id="module-15">
             <div class="module-card__header">
               <div class="iso-icon-tile iso-icon-tile--blue">
                 <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -279,19 +472,19 @@
                 </svg>
               </div>
               <div>
-                <span class="module-card__label module-card__label--blue">MODULE 06</span>
+                <span class="module-card__label module-card__label--blue">MODULE 15</span>
                 <h2 class="module-card__title">Network Mapping &amp; Nmap</h2>
               </div>
             </div>
             <p class="module-card__summary">Learn port scanning methodologies, service detection, and Nmap firewall
               evasion flags.</p>
-            <a href="module-detail.html?id=06" class="module-card__action">View Module details <span>→</span></a>
+            <a href="module-detail.html?id=15" class="module-card__action">View Module details <span>→</span></a>
           </div>
 
         </div>
       </section>
 
-      <!-- ── Group 3: Web Application Defense ──────────────────── -->
+      <!-- ── Group 4: Web Application Defense ──────────────────── -->
       <section class="module-group">
         <div class="module-group__header">
           <h3 class="module-group__title">Web Application Defense</h3>
@@ -299,8 +492,8 @@
         </div>
         <div class="modules-grid">
 
-          <!-- Module 7: Password Auditing & Entropy Analysis -->
-          <div class="module-card" id="module-7">
+          <!-- Module 16: Password Auditing & Entropy Analysis -->
+          <div class="module-card" id="module-16">
             <div class="module-card__header">
               <div class="iso-icon-tile">
                 <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -309,17 +502,17 @@
                 </svg>
               </div>
               <div>
-                <span class="module-card__label">MODULE 07</span>
+                <span class="module-card__label">MODULE 16</span>
                 <h2 class="module-card__title">Password Strength &amp; Entropy</h2>
               </div>
             </div>
             <p class="module-card__summary">Estimate password strength mathematically using Shannon Entropy and study
               auditing tools.</p>
-            <a href="module-detail.html?id=07" class="module-card__action">View Module details <span>→</span></a>
+            <a href="module-detail.html?id=16" class="module-card__action">View Module details <span>→</span></a>
           </div>
 
-          <!-- Module 8: Secure User Sessions & Authenticator Hygiene -->
-          <div class="module-card" id="module-8">
+          <!-- Module 17: Secure User Sessions & Authenticator Hygiene -->
+          <div class="module-card" id="module-17">
             <div class="module-card__header">
               <div class="iso-icon-tile iso-icon-tile--secondary">
                 <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -329,17 +522,17 @@
                 </svg>
               </div>
               <div>
-                <span class="module-card__label module-card__label--secondary">MODULE 08</span>
+                <span class="module-card__label module-card__label--secondary">MODULE 17</span>
                 <h2 class="module-card__title">Session &amp; Authenticator Hygiene</h2>
               </div>
             </div>
             <p class="module-card__summary">Implement secure login sessions, protect credentials in storage, and defend
               against brute-force attacks.</p>
-            <a href="module-detail.html?id=08" class="module-card__action">View Module details <span>→</span></a>
+            <a href="module-detail.html?id=17" class="module-card__action">View Module details <span>→</span></a>
           </div>
 
-          <!-- Module 9: Web Injection Defenses & Client Headers -->
-          <div class="module-card" id="module-9">
+          <!-- Module 18: Web Injection Defenses & Client Headers -->
+          <div class="module-card" id="module-18">
             <div class="module-card__header">
               <div class="iso-icon-tile iso-icon-tile--blue">
                 <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -348,13 +541,13 @@
                 </svg>
               </div>
               <div>
-                <span class="module-card__label module-card__label--blue">MODULE 09</span>
+                <span class="module-card__label module-card__label--blue">MODULE 18</span>
                 <h2 class="module-card__title">Web Injection &amp; Client Headers</h2>
               </div>
             </div>
             <p class="module-card__summary">Protect applications against SQL Injection (SQLi) and Cross-Site Scripting
               (XSS) with validation and security headers.</p>
-            <a href="module-detail.html?id=09" class="module-card__action">View Module details <span>→</span></a>
+            <a href="module-detail.html?id=18" class="module-card__action">View Module details <span>→</span></a>
           </div>
 
         </div>

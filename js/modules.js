@@ -6,12 +6,22 @@
 
   function initModulesIndex() {
     const searchInput = document.querySelector('.search-input');
-    if (!searchInput) return;
+    const trackTabs = document.querySelectorAll('.track-tab');
+    let currentTrack = 'everyday'; // 'everyday' or 'technical'
 
-    searchInput.addEventListener('keyup', (e) => {
-      const query = e.target.value.toLowerCase().trim();
+    function filterModules() {
+      const query = searchInput ? searchInput.value.toLowerCase().trim() : '';
 
       document.querySelectorAll('.module-group').forEach(group => {
+        const isEverydayGroup = group.querySelector('.module-group__title')?.textContent.includes('Everyday Awareness');
+        const belongsToCurrentTrack = (currentTrack === 'everyday' && isEverydayGroup) || 
+                                      (currentTrack === 'technical' && !isEverydayGroup);
+
+        if (!belongsToCurrentTrack) {
+          group.style.display = 'none';
+          return;
+        }
+
         const cards = group.querySelectorAll('.module-card');
         let visibleCount = 0;
 
@@ -20,7 +30,7 @@
           const summary = (card.querySelector('.module-card__summary')?.textContent || '').toLowerCase();
           const label = (card.querySelector('.module-card__label')?.textContent || '').toLowerCase();
 
-          if (title.includes(query) || summary.includes(query) || label.includes(query)) {
+          if (query === '' || title.includes(query) || summary.includes(query) || label.includes(query)) {
             card.style.display = '';
             visibleCount++;
           } else {
@@ -35,7 +45,24 @@
           group.style.display = '';
         }
       });
+    }
+
+    if (searchInput) {
+      searchInput.addEventListener('keyup', filterModules);
+      searchInput.addEventListener('input', filterModules);
+    }
+
+    trackTabs.forEach(tab => {
+      tab.addEventListener('click', () => {
+        trackTabs.forEach(t => t.classList.remove('active'));
+        tab.classList.add('active');
+        currentTrack = tab.getAttribute('data-track');
+        filterModules();
+      });
     });
+
+    // Run initial filter
+    filterModules();
   }
 
   if (document.readyState === 'loading') {

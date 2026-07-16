@@ -90,7 +90,7 @@
         <div class="hero-content">
           <span class="badge badge--gradient">Simulations</span>
           <h1 class="hero-title">Interactive Simulations</h1>
-          <p class="hero-desc">// simulation_engine: active — scenarios_loaded: 5 — mode: training</p>
+          <p class="hero-desc">// simulation_engine: active — scenarios_loaded: 7 — mode: training</p>
           <p class="hero-intro-text">Interactive threat exercises and simulations designed to test your cybersecurity
             decision-making and analytical skills. These simulators mirror the decision-making pressure of real incident
             response.</p>
@@ -145,9 +145,11 @@
       <nav class="toc-nav" aria-label="Table of contents">
         <ul class="toc-links">
           <li><a href="#nmap-sim" class="toc-link">Nmap Scanner</a></li>
-          <li><a href="#ir-sim" class="toc-link">Incident Response</a></li>
           <li><a href="#chat-sim" class="toc-link">Social Engineering</a></li>
           <li><a href="#phishing-sim" class="toc-link">Phishing Detector</a></li>
+          <li><a href="#wifi-picker-sim" class="toc-link">Wi-Fi Picker</a></li>
+          <li><a href="#permission-auditor-sim" class="toc-link">Permission Auditor</a></li>
+          <li><a href="#deepfake-spotter-sim" class="toc-link">Deepfake Spotter</a></li>
           <li><a href="#entropy-sim" class="toc-link">Password Entropy</a></li>
         </ul>
       </nav>
@@ -206,55 +208,7 @@
         <div id="nmap-results" class="nmap-results"></div>
       </section>
 
-      <!-- ════════════════════════════════════════════════════ -->
-      <!-- GAME B: Incident Response Playbook                  -->
-      <!-- ════════════════════════════════════════════════════ -->
-      <section class="game-section" id="ir-sim">
-        <div class="game-section__header">
-          <div class="iso-icon-tile">
-            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" stroke="url(#hero-brand-grad)" stroke-width="2" />
-              <line x1="12" y1="8" x2="12" y2="12" stroke="#EDEFF3" stroke-width="2" stroke-linecap="round" />
-              <circle cx="12" cy="16" r="1" fill="#EDEFF3" />
-            </svg>
-          </div>
-          <div class="game-section__title-group">
-            <span class="badge badge--gradient">Incident Response</span>
-            <h2 class="game-section__title">Incident Response Playbook</h2>
-          </div>
-        </div>
-        <p class="game-section__desc">Select a security incident scenario and click Start to contain the threat.
-          Sequence and speed are critical. Select the correct options in order to neutralize the vector before the
-          corruption meter maxes out.</p>
 
-        <div class="ir-controls">
-          <select id="ir-scenario-select" class="ir-scenario-select" aria-label="Select Incident Scenario">
-            <option value="ransomware">Ransomware Containment</option>
-            <option value="exfiltration">Insider Data Exfiltration</option>
-            <option value="bec">Business Email Compromise (BEC)</option>
-            <option value="ddos">DDoS Mitigation</option>
-          </select>
-          <button type="button" id="ir-start-btn" class="btn btn--primary btn--sm">Start Triage Mission</button>
-        </div>
-
-        <div class="ir-meter-container">
-          <div class="ir-status-group">
-            <span class="mono ir-label">System Corruption:</span>
-            <span id="ir-damage-percent" class="mono text-red ir-value">0%</span>
-          </div>
-          <div class="damage-meter">
-            <div id="ir-damage-fill" class="damage-fill"></div>
-          </div>
-        </div>
-
-        <div class="triage-actions" id="ir-actions-container">
-          <!-- Dynamically populated by incident-response.js -->
-        </div>
-
-        <div id="ir-status" class="mono ir-status-box">
-          // Incident engine idle. Click Start to initialize.
-        </div>
-      </section>
 
       <!-- ════════════════════════════════════════════════════ -->
       <!-- GAME C: Hacker Chat Defense                         -->
@@ -345,6 +299,125 @@
           </div>
         </div>
       </section>
+
+      <!-- ════════════════════════════════════════════════════ -->
+      <!-- GAME E: Wi-Fi Network Picker                         -->
+      <!-- ════════════════════════════════════════════════════ -->
+      <section class="game-section" id="wifi-picker-sim">
+        <div class="game-section__header">
+          <div class="iso-icon-tile">
+            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M5 12.55a11 11 0 0 1 14.08 0M1.42 9a16 16 0 0 1 21.16 0M8.53 16.11a6 6 0 0 1 6.95 0" stroke="url(#hero-brand-grad)" stroke-width="2" stroke-linecap="round"/>
+              <circle cx="12" cy="20" r="1.5" fill="#EDEFF3"/>
+            </svg>
+          </div>
+          <div class="game-section__title-group">
+            <span class="badge badge--gradient">Network Security</span>
+            <h2 class="game-section__title">Wi-Fi Network Picker</h2>
+          </div>
+        </div>
+        <p class="game-section__desc">Select and connect to networks in a public airport terminal. Evaluate security protocols and SSID authenticity. Click a network to inspect it, then choose to connect. Avoid unencrypted hotspots and evil-twin lookalikes.</p>
+
+        <!-- Score Dashboard -->
+        <div class="phishing-score">
+          <div class="phishing-score__item">
+            <div class="phishing-score__value text-green" id="wifi-accuracy">100%</div>
+            <div class="phishing-score__label">Accuracy</div>
+          </div>
+          <div class="phishing-score__item">
+            <div class="phishing-score__value text-amber" id="wifi-score">0/5</div>
+            <div class="phishing-score__label">Safe Connections</div>
+          </div>
+        </div>
+
+        <div class="phishing-inbox" id="wifi-picker-container">
+          <div class="inbox-list" id="wifi-list">
+            <!-- Populated by wifi-picker.js -->
+          </div>
+          <div class="email-viewer" id="wifi-inspector">
+            <div class="email-viewer__empty">Select a network to inspect</div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ════════════════════════════════════════════════════ -->
+      <!-- GAME F: App Permission Auditor                       -->
+      <!-- ════════════════════════════════════════════════════ -->
+      <section class="game-section" id="permission-auditor-sim">
+        <div class="game-section__header">
+          <div class="iso-icon-tile">
+            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <rect x="5" y="2" width="14" height="20" rx="2" stroke="url(#hero-brand-grad)" stroke-width="2"/>
+              <circle cx="12" cy="18" r="1" fill="#EDEFF3"/>
+              <path d="M9 6h6M9 10h4" stroke="#EDEFF3" stroke-width="1.5" stroke-linecap="round"/>
+            </svg>
+          </div>
+          <div class="game-section__title-group">
+            <span class="badge badge--gradient">Access Control</span>
+            <h2 class="game-section__title">App Permission Auditor</h2>
+          </div>
+        </div>
+        <p class="game-section__desc">Audit installation requests for mobile applications. Examine the list of permissions requested by each utility or game. Flag excessive, suspicious access requests that present privacy leaks or local compromise vectors.</p>
+
+        <!-- Score Dashboard -->
+        <div class="phishing-score">
+          <div class="phishing-score__item">
+            <div class="phishing-score__value text-green" id="perm-accuracy">100%</div>
+            <div class="phishing-score__label">Accuracy</div>
+          </div>
+          <div class="phishing-score__item">
+            <div class="phishing-score__value text-amber" id="perm-score">0/4</div>
+            <div class="phishing-score__label">Apps Audited</div>
+          </div>
+        </div>
+
+        <div class="phishing-inbox" id="permission-container">
+          <div class="inbox-list" id="perm-app-list">
+            <!-- Populated by permission-auditor.js -->
+          </div>
+          <div class="email-viewer" id="perm-viewer">
+            <div class="email-viewer__empty">Select an app to audit</div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ════════════════════════════════════════════════════ -->
+      <!-- GAME G: Spot the Deepfake                            -->
+      <!-- ════════════════════════════════════════════════════ -->
+      <section class="game-section" id="deepfake-spotter-sim">
+        <div class="game-section__header">
+          <div class="iso-icon-tile">
+            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <circle cx="12" cy="8" r="4" stroke="url(#hero-brand-grad)" stroke-width="2"/>
+              <path d="M4 20c0-4 3.6-7 8-7s8 3 8 7" stroke="url(#hero-brand-grad)" stroke-width="2" stroke-linecap="round"/>
+              <path d="M15 5l4-3M9 5L5 2" stroke="#EDEFF3" stroke-width="1.5" stroke-linecap="round"/>
+            </svg>
+          </div>
+          <div class="game-section__title-group">
+            <span class="badge badge--gradient">AI Scam Awareness</span>
+            <h2 class="game-section__title">Spot the Deepfake</h2>
+          </div>
+        </div>
+        <p class="game-section__desc">Identify synthetic media and AI-generated social engineering attempts. Read the transcript exchanges, analyze tone, urgency level, and financial traps, and classify them as deepfake scams or legitimate client requests.</p>
+
+        <!-- Score Dashboard -->
+        <div class="phishing-score">
+          <div class="phishing-score__item">
+            <div class="phishing-score__value text-green" id="df-accuracy">100%</div>
+            <div class="phishing-score__label">Accuracy</div>
+          </div>
+          <div class="phishing-score__item">
+            <div class="phishing-score__value text-amber" id="df-score">0/5</div>
+            <div class="phishing-score__label">Verdicts Correct</div>
+          </div>
+        </div>
+
+        <div class="df-container-wrapper" id="deepfake-container">
+          <!-- Populated by deepfake-spotter.js -->
+        </div>
+      </section>
+
+      <!-- ════════════════════════════════════════════════════ -->
 
       <!-- ════════════════════════════════════════════════════ -->
       <!-- UTILITY: Brute-Force Entropy Estimator              -->
@@ -461,10 +534,12 @@
   <script src="js/navigation.js"></script>
   <script src="js/chatbot.js"></script>
   <script src="js/nmap-simulator.js"></script>
-  <script src="js/incident-response.js"></script>
   <script src="js/social-engineering.js"></script>
   <script src="js/phishing-detector.js"></script>
   <script src="js/entropy-estimator.js"></script>
+  <script src="js/wifi-picker.js"></script>
+  <script src="js/permission-auditor.js"></script>
+  <script src="js/deepfake-spotter.js"></script>
   <script src="js/games.js"></script>
 </body>
 

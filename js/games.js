@@ -9,9 +9,11 @@
     const tocLinks = $$('.toc-link');
     const sections = [
       $('#nmap-sim'),
-      $('#ir-sim'),
       $('#chat-sim'),
       $('#phishing-sim'),
+      $('#wifi-picker-sim'),
+      $('#permission-auditor-sim'),
+      $('#deepfake-spotter-sim'),
       $('#entropy-sim')
     ].filter(Boolean);
 
