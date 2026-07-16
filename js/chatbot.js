@@ -226,7 +226,9 @@
       hideTyping();
 
       if (!res.ok) {
-        addErrorMessage('SENTINEL is temporarily unavailable. Please try again.');
+        const errText = await res.text().catch(() => '');
+        console.error('SENTINEL API error:', res.status, errText);
+        addErrorMessage(`SENTINEL is temporarily unavailable (${res.status}). Please try again.`);
         isWaiting = false;
         sendBtn.disabled = false;
         inputEl.focus();

@@ -5,7 +5,7 @@
  * securely without needing any npm package dependencies.
  */
 
-const GEMINI_MODEL = 'gemini-3.1-flash-lite';
+const GEMINI_MODEL = 'gemini-2.0-flash';
 const MAX_MESSAGE_LENGTH = 1000;
 
 const SYSTEM_INSTRUCTION = `You must keep all responses extremely brief, direct, and concise, limited to a maximum of 2 to 3 short sentences total instead of full paragraphs. You are SENTINEL, a strict Cybersecurity Awareness Assistant for the CyberOps platform.
@@ -36,6 +36,20 @@ Your behavior is strictly governed by the following guidelines:
 - Maintain a professional, alert, and educational tone.
 - Keep responses extremely short, direct, and concise: answers must be limited to a maximum of 2 to 3 brief sentences total instead of generating paragraphs.`;
 
+/**
+ * Manually reads the raw request body from the Node.js IncomingMessage stream.
+ * Vercel does NOT pre-parse req.body for plain serverless functions — we must
+ * do this ourselves, otherwise req.body is always undefined.
+ */
+function readBody(req) {
+  return new Promise((resolve, reject) => {
+    const chunks = [];
+    req.on('data', (chunk) => chunks.push(chunk));
+    req.on('end', () => resolve(Buffer.concat(chunks).toString('utf8')));
+    req.on('error', reject);
+  });
+}
+
 export default async function handler(req, res) {
   // ── Method guard ──────────────────────────────────────────────────────────
   if (req.method !== 'POST') {
@@ -43,10 +57,11 @@ export default async function handler(req, res) {
     return;
   }
 
-  // ── Parse body ────────────────────────────────────────────────────────────
+  // ── Parse body (manually — Vercel does not pre-parse raw bodies) ──────────
   let message;
   try {
-    const body = typeof req.body === 'string' ? JSON.parse(req.body) : req.body;
+    const raw = await readBody(req);
+    const body = JSON.parse(raw);
     message = body?.message;
   } catch {
     res.status(400).json({ error: 'Invalid JSON body.' });
@@ -63,10 +78,11 @@ export default async function handler(req, res) {
     return;
   }
 
-  // Ensure the server-side API key exists
+  // ── Ensure the server-side API key exists ─────────────────────────────────
   const apiKey = process.env.GEMINI_API_KEY;
   if (!apiKey) {
-    res.status(500).json({ error: 'GEMINI_API_KEY is not configured on Vercel.' });
+    console.error('GEMINI_API_KEY is not set in Vercel environment variables.');
+    res.status(500).json({ error: 'Server configuration error: API key missing.' });
     return;
   }
 
@@ -76,10 +92,9 @@ export default async function handler(req, res) {
   res.setHeader('X-Content-Type-Options', 'nosniff');
   res.status(200);
 
-  // ── Call Gemini REST API directly ─────────────────────────────────────────
+  // ── Call Gemini REST API directly (SSE stream) ────────────────────────────
   try {
-    // We use ?alt=sse so Gemini returns clean, easy-to-parse Server-Sent Events
-    const response = await fetch(
+    const geminiRes = await fetch(
       `https://generativelanguage.googleapis.com/v1beta/models/${GEMINI_MODEL}:streamGenerateContent?alt=sse&key=${apiKey}`,
       {
         method: 'POST',
@@ -92,11 +107,13 @@ export default async function handler(req, res) {
       }
     );
 
-    if (!response.ok) {
-      throw new Error(`Gemini API returned status ${response.status}`);
+    if (!geminiRes.ok) {
+      const errText = await geminiRes.text();
+      console.error(`Gemini API error ${geminiRes.status}:`, errText);
+      throw new Error(`Gemini API returned status ${geminiRes.status}`);
     }
 
-    const reader = response.body.getReader();
+    const reader = geminiRes.body.getReader();
     const decoder = new TextDecoder();
     let buffer = '';
 
@@ -107,22 +124,18 @@ export default async function handler(req, res) {
       buffer += decoder.decode(value, { stream: true });
       const lines = buffer.split('\n');
 
-      // Save the last potentially incomplete line back to the buffer
+      // Keep the last potentially-incomplete line in the buffer
       buffer = lines.pop() || '';
 
       for (const line of lines) {
-        const cleanedLine = line.trim();
-        if (cleanedLine.startsWith('data:')) {
-          try {
-            const jsonStr = cleanedLine.slice(5).trim();
-            const data = JSON.parse(jsonStr);
-            const text = data.candidates?.[0]?.content?.parts?.[0]?.text;
-            if (text) {
-              res.write(text); // Stream the chunk directly to the frontend
-            }
-          } catch (e) {
-            // Ignore incomplete line chunks
-          }
+        const trimmed = line.trim();
+        if (!trimmed.startsWith('data:')) continue;
+        try {
+          const data = JSON.parse(trimmed.slice(5).trim());
+          const text = data.candidates?.[0]?.content?.parts?.[0]?.text;
+          if (text) res.write(text);
+        } catch {
+          // Ignore partial / non-JSON SSE lines
         }
       }
     }
